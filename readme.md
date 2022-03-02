@@ -10,3 +10,11 @@ UPI Dimensional Drift : Mengambil referensi dari ultimate agent valorant (Yoru),
 -   [Riyandi Firman](https://github.com/riyandifirman)
 -   [Rony Wahyu](https://github.com/ronywahyuu)
 -   [Septian Pradipta](https://github.com/TitamSeptian)
+
+# git clone "link"
+# git add .
+# git commit -m "pesan contoh : ehh bang"
+# git push -u origin main
+
+# git status
+# git pull
