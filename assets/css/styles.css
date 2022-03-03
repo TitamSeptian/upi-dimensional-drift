@@ -36,7 +36,7 @@ body {
     font-weight: 700;
     font-size: 18px;
     text-decoration: none;
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 /* home section */
@@ -156,6 +156,86 @@ body {
 
 #our-team .teams .team .social svg {
 } */
+
+/* Footer Style */
+
+.container_footer_utama {
+    background-color: #131D32;
+    color: white;
+    padding: 30px 20px 30px 40px;
+    display: flex;
+}
+
+.container_footer_2 {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.footer_desc {
+    padding-right: 30px;
+    flex-basis: 600px;
+}
+
+.footer_desc #footer_title {
+    font-size: 25px;
+}
+
+.footer_desc .desc_singkat {
+    margin-top: 10px;
+    width: 600px;
+    text-align: justify;
+    font-size: 14px;
+}
+
+.footer_navbar {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.footer_navbar .fotnav-links {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.fotnav-item {
+    margin: 20px;
+    padding-left: 70px;
+}
+
+.footer_navbar .fotnav-links .fotnav-item .fotnav-link {
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.footer_socmed {
+    display: flex;
+    margin-left: 512px;
+}
+
+.footer_socmed #socmed_title{
+    font-size: 18px;
+}
+
+.footer_socmed .icon_app {
+    margin-left: 30px;
+}
+
+.container_footer_legal {
+    font-size: 14px;
+    flex-wrap: wrap;
+    background-color: #131D32;
+    color: white;
+    padding: 30px 20px 30px 40px;
+    display: flex;
+}
+
+/* Footer Style sampe di sini*/
+
 @media (max-width: 762px) {
     #our-team h1 {
         font-size: 32px;
