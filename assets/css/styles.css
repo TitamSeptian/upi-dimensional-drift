@@ -16,6 +16,79 @@ body {
     /* max-width: 1000px; */
 }
 
+/* navbar */
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 40px 0px;
+}
+
+#navbar .nav-links{
+    display: flex;
+    /* border: 1px solid black; */
+    width: 40%;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+
+#navbar .nav-links .nav-item .nav-link{
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+
+
+/* about section */
+#about{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    /* border: 1px solid black; */
+}
+
+#about h1{
+    font-size: 64px;
+}
+
+#about p{
+    /* border: 1px solid black; */
+    width: 40%;
+    margin: 45px 0 45px;
+}
+
+#about button{
+    /* width: 200px; */
+    background-color: var(--color-1);
+    color: white;
+    padding: 10px 50px;
+    
+    border: none;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .1s;
+}
+
+#about button:hover{
+    transform: scale(1.02);
+}
+
+#about button:active{
+    /* box-shadow: 0 5px #666; */
+    transform: translateY(1px);
+}
+
+/* #about button:focus{
+    outline: none;
+} */
+
 /* out team */
 #our-team {
 }
@@ -95,5 +168,22 @@ body {
     }
     #our-team .teams .team {
         /* width: 100%; */
+    }
+
+    
+    #navbar .nav-links{
+        display: none;
+        /* width: 100%;         */
+        /* opacity: 0; */
+        border: 1px solid black;
+    }
+
+    #about h1{
+        font-size: 42px;
+        margin-bottom: 20px;
+    }
+
+    #about p{
+        width: 70%;
     }
 }
