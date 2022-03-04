@@ -271,8 +271,8 @@ body {
 .item-deskripsi {
     color: white;
     text-align: justify;
-    padding: 10px;
-    font-size: 12px;
+    padding: 10px 20px;
+    font-size: 16px;
 }
 
 .item-gambar {
@@ -382,7 +382,7 @@ body {
 
 #our-team .teams .team h4 {
     font-size: 1rem;
-    margin-bottom: 1.225rem;
+    /* margin-bottom: 0.725rem; */
     /* justify-content: center; */
     text-align: left !important;
 }
