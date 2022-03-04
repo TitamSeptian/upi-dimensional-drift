@@ -1,0 +1,10 @@
+Kelompok Sekolah Suruzan
+| Nama             | NIM     | Social                                     |
+| ---------------- | ------- | ------------------------------------------ |
+| Fikri Habib      | 2004386 | [Github](https://github.com/FikriEbods)    |
+| Riyandi Firman   | 2008672 | [Github](https://github.com/riyandifirman) |
+| Rony Wahyu       | 2006172 | [Github](https://github.com/ronywahyuu)    |
+| Septian Pradipta | 2007428 | [Github](https://github.com/TitamSeptian)  |
+
+File Project di simpan repository Github
+https://github.com/TitamSeptian/upi-dimensional-drift

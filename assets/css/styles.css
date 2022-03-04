@@ -89,6 +89,7 @@ body {
 
 /* out team */
 #our-team {
+    margin-bottom: 30px;
 }
 
 #our-team h1 {
@@ -96,6 +97,7 @@ body {
     text-align: center;
 }
 #our-team p {
+    margin-top: 1.725rem;
     text-align: center;
     font-size: 1rem;
 }
@@ -137,7 +139,7 @@ body {
 
 #our-team .teams .team h4 {
     font-size: 1rem;
-    margin-bottom: 0.725rem;
+    margin-bottom: 1.225rem;
     /* justify-content: center; */
     text-align: left !important;
 }
@@ -157,10 +159,14 @@ body {
 #our-team .teams .team .social svg {
 } */
 
+#our-team .teams .team .social a {
+    text-decoration: none;
+}
+
 /* Footer Style */
 
 .container_footer_utama {
-    background-color: #131D32;
+    background-color: #131d32;
     color: white;
     padding: 30px 20px 30px 40px;
     display: flex;
@@ -217,7 +223,7 @@ body {
     margin-left: 512px;
 }
 
-.footer_socmed #socmed_title{
+.footer_socmed #socmed_title {
     font-size: 18px;
 }
 
@@ -228,7 +234,7 @@ body {
 .container_footer_legal {
     font-size: 14px;
     flex-wrap: wrap;
-    background-color: #131D32;
+    background-color: #131d32;
     color: white;
     padding: 30px 20px 30px 40px;
     display: flex;
