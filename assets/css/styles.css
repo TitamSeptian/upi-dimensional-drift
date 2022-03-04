@@ -11,6 +11,160 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
+.preloader {
+    width: 100vw;
+    height: 100vh;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    -webkit-animation: seconds 1s forwards;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 5s;
+    animation: seconds 1s forwards;
+    animation-iteration-count: 1;
+    animation-delay: 5s;
+}
+@-webkit-keyframes seconds {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        left: -9999px;
+    }
+}
+@keyframes seconds {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        left: -9999px;
+    }
+}
+
+.preloader .center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preloader .center img {
+    width: 100px;
+    text-align: center !important;
+    -webkit-animation: sk-rotate 2s infinite ease-in-out;
+    animation: sk-rotate 2s infinite ease-in-out;
+}
+
+.preloader .image-helper {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+    width: 200px;
+}
+
+.preloader .preloader-text {
+    margin-top: 30px;
+    animation-name: preloader-text;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes preloader-text {
+    0% {
+        color: #333;
+    }
+
+    50% {
+        color: var(--color-1);
+    }
+
+    100% {
+        color: var(--color-2);
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    margin: 100px auto;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    text-align: center;
+
+    -webkit-animation: sk-rotate 2s infinite linear;
+    animation: sk-rotate 2s infinite linear;
+}
+
+.dot1,
+.dot2 {
+    width: 60%;
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: var(--color-1);
+    border-radius: 100%;
+
+    -webkit-animation: sk-bounce 2s infinite ease-in-out;
+    animation: sk-bounce 2s infinite ease-in-out;
+}
+
+.dot2 {
+    background-color: var(--color-2);
+    top: auto;
+    bottom: 0;
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s;
+}
+
+@-webkit-keyframes sk-rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes sk-rotate {
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes sk-bounce {
+    0%,
+    100% {
+        -webkit-transform: scale(0);
+    }
+
+    50% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes sk-bounce {
+    0%,
+    100% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+}
+
 .container {
     padding: 0 40px;
     /* max-width: 1000px; */
@@ -94,7 +248,7 @@ body {
 
 .about-upi {
     display: flex;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 35px;
     background-color: var(--color-3);
@@ -104,28 +258,28 @@ body {
 }
 
 .about-upi:hover {
-    box-shadow: 16px 16px 16px 16px rgba(0,0,0,0.2);
+    box-shadow: 16px 16px 16px 16px rgba(0, 0, 0, 0.2);
 }
 
-.item-judul{
+.item-judul {
     color: white;
     text-align: center;
     text-transform: uppercase;
     padding: 100px 20px 20px 20px;
 }
 
-.item-deskripsi{
+.item-deskripsi {
     color: white;
     text-align: justify;
     padding: 10px;
     font-size: 12px;
 }
 
-.item-gambar{
+.item-gambar {
     border-radius: 0px 35px 35px 0px;
 }
 
-.item-gambar img{
+.item-gambar img {
     border-radius: 0px 35px 35px 0px;
     display: block;
     height: auto;
@@ -139,7 +293,7 @@ body {
     margin-left: 25%;
 }
 
-.about-item-system{
+.about-item-system {
     border-radius: 20px;
     color: white;
     display: flex;
@@ -148,17 +302,17 @@ body {
     height: 150px;
 }
 
-.about-item-system img{
+.about-item-system img {
     object-fit: contain;
     width: 70px;
     margin: 20px;
 }
 
-.system-content{
+.system-content {
     padding: 30px 20px 0px 0px;
 }
 
-.about-item-information{
+.about-item-information {
     border-radius: 20px;
     color: white;
     display: flex;
@@ -166,13 +320,13 @@ body {
     width: 400px;
 }
 
-.about-item-information img{
+.about-item-information img {
     object-fit: contain;
     width: 70px;
     margin: 20px;
 }
 
-.information-content{
+.information-content {
     padding: 30px 20px 0px 0px;
 }
 
