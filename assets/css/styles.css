@@ -93,6 +93,7 @@ body {
 }
 
 .about-upi {
+    display: flex;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 35px;
@@ -106,38 +107,22 @@ body {
     box-shadow: 16px 16px 16px 16px rgba(0,0,0,0.2);
 }
 
-.grid-about {
-    display: grid;
-    gap: 10px;
-    padding: 10px;
-}
-
-.grid-item-about {
-    padding: 0px;
-    font-size: 30px;
-}
-
 .item-judul{
     color: white;
     text-align: center;
     text-transform: uppercase;
-    padding: 20px;
-    grid-column: 1;
-    grid-row: 1;
+    padding: 100px 20px 20px 20px;
 }
 
 .item-deskripsi{
     color: white;
     text-align: justify;
     padding: 10px;
-    grid-column: 1;
-    grid-row: 2;
     font-size: 12px;
 }
 
 .item-gambar{
-    grid-column: 2;
-    grid-row: 1 / span 3;
+    border-radius: 0px 35px 35px 0px;
 }
 
 .item-gambar img{
@@ -147,10 +132,51 @@ body {
 }
 
 .about-feature {
-
+    display: flex;
+    gap: 50px;
+    margin-top: 100px;
+    margin-right: 25%;
+    margin-left: 25%;
 }
 
+.about-item-system{
+    box-shadow: 16px 16px 0px 0px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    background-color: var(--color-1);
+    width: 400px;
+    height: 150px;
+}
 
+.about-item-system img{
+    object-fit: contain;
+    width: 70px;
+    margin: 20px;
+}
+
+.system-content{
+    padding: 30px 20px 0px 0px;
+}
+
+.about-item-information{
+    box-shadow: 16px 16px 0px 0px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    background-color: var(--color-1);
+    width: 400px;
+}
+
+.about-item-information img{
+    object-fit: contain;
+    width: 70px;
+    margin: 20px;
+}
+
+.information-content{
+    padding: 30px 20px 0px 0px;
+}
 
 /* out team */
 #our-team {
