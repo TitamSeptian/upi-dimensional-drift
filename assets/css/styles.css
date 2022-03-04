@@ -140,7 +140,6 @@ body {
 }
 
 .about-item-system{
-    box-shadow: 16px 16px 0px 0px rgba(0,0,0,0.2);
     border-radius: 20px;
     color: white;
     display: flex;
@@ -160,7 +159,6 @@ body {
 }
 
 .about-item-information{
-    box-shadow: 16px 16px 0px 0px rgba(0,0,0,0.2);
     border-radius: 20px;
     color: white;
     display: flex;
