@@ -8,6 +8,7 @@ Kelompok Sekolah Suruzan
 
 File Project di simpan repository Github
 https://github.com/TitamSeptian/upi-dimensional-drift
+https://gitlab.com/TitamSeptian/upi-dimensional-drift
 
 Halaman Aktif
 https://upi-dimensional-drift.herokuapp.com/
