@@ -33,7 +33,7 @@
     z-index: 9999;
     /* opacity: 0; */
     transition: all 0.4s;
-    transform: translateY(-100%);
+    transform: translateY(-150%);
 }
 .panorama .info-destination.active {
     opacity: 1;
@@ -289,7 +289,7 @@
 }
 
 .detail-room .container h1 {
-    font-size: 42px;
+    font-size: 24px;
     text-transform: uppercase;
 }
 
@@ -297,6 +297,7 @@
     margin-top: 20px;
     text-align: justify;
     text-indent: 1.7em;
+    font-size: 16px;
 }
 
 .detail-room .container ul {
@@ -312,6 +313,7 @@
     padding: 5px;
 }
 .images .image img {
+    border-radius: 14px;
     width: 257px;
     height: auto;
 }
@@ -329,4 +331,9 @@
     .detail-room .container ul {
         font-size: 12px;
     }
+}
+
+#navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
