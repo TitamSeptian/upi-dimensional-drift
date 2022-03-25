@@ -6,6 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>UPI Dimensional Drift</title>
         <link rel="stylesheet" href="./assets/css/styles.css" />
+        
+        <link rel="stylesheet" href="./assets/css/responsive.css">
+        <!-- hamburger css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css" integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link
             rel="icon"
             type="image/png"
@@ -13,7 +17,7 @@
         />
     </head>
     <body>
-        <div class="preloader">
+        <!-- <div class="preloader">
             <div class="center">
                 <div class="wrapper text-center">
                     <img src="./assets/images/logo/logo.png" alt="logo" />
@@ -26,14 +30,16 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <nav id="navbar" class="">
             <!-- nanti navbar disini -->
-            <img
-                src="./assets/images/logo/logo-with-text.png"
-                class="logo"
-                alt=""
-            />
+            <a href="#">
+                <img
+                    src="./assets/images/logo/logo-with-text.png"
+                    class="logo"
+                    alt=""
+                />
+            </a>
 
             <ul class="nav-links">
                 <li class="nav-item">
@@ -49,6 +55,12 @@
                     <a href="#gallery" class="nav-link">Gallery</a>
                 </li>
             </ul>
+
+            <button class="hamburger hamburger--collapse  hidden" type="button">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+            </button>
         </nav>
         <section id="home">
             <!-- home disini -->
@@ -65,7 +77,7 @@
         <section id="about">
             <!-- about disini -->
             <div class="about-upi">
-                <div>
+                <div class="item-text">
                     <h3 class="item-judul">UPI Dimensional Drift</h3>
                     <p class="item-deskripsi">
                         Take reference from the ultimate agent valorant (Yoru),
@@ -430,11 +442,12 @@
                     </div>
                 </div>
             </div>
-
+            <hr style="height:1px;border:none;color:#333;background-color:#333;">
             <div class="container_footer_legal">
                 <p>&copy; 2022 Sekolah Suzuran. All right reserved</p>
             </div>
         </footer>
         <script src="./assets/js/script.js"></script>
+        <script src="./assets/js/responsive.js"></script>
     </body>
 </html>
