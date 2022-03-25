@@ -79,4 +79,13 @@ $(document).ready(function () {
                 .addClass("in")
                 .data("class", "in");
         });
+
+    $(".buttons.in a").on("click", function () {
+        $("html, body").animate(
+            {
+                scrollTop: $($.attr(this, "href")).offset().top,
+            },
+            500
+        );
+    });
 });
