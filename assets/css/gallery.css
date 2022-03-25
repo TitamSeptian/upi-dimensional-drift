@@ -1,0 +1,15 @@
+#upper {
+    background-image: url(../images/gallery/bghome.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#navbar .nav-links .nav-item .nav-link {
+    color: #FFFFFF !important;
+}
+
+#home .about-title {
+    color: #FFFFFF !important;
+}
