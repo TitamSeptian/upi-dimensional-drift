@@ -1,0 +1,162 @@
+ /* new utilities style*/
+ html{
+    scroll-behavior: smooth;
+}
+ .hamburger{
+     position: fixed;
+     right: 10px;
+     /* top: 30px; */
+ }
+ .hidden{
+    visibility: hidden;
+    display: none;
+ }
+
+ /* edit style for about */
+#about{
+    display: flex;
+    flex-direction: column;
+}
+
+.item-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 35px 20px 20px 20px;
+}
+/* end of editted about style */
+
+
+/* new style for footer */
+.container_footer_utama{
+    background-color: #131d32;
+    color: white;
+    padding: 60px 40px ;
+    display: flex;
+}
+
+
+.container_footer_2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container_footer_2 .fotnav-links{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.container_footer_2 .fotnav-links .fotnav-item a{
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.container_footer_2 .footer_socmed{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.container_footer_legal {
+    background-color: #131d32;
+    color: white;
+    font-size: 14px;
+    padding: 30px 40px;
+}
+#socmed_title{
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+/* end of new footer style */
+
+@media(max-width:1170px){
+
+    #home p {
+        width: 70%;
+    }
+
+    .about-upi {
+        flex-direction: column;
+    }
+
+    .about-feature{
+        flex-wrap: wrap;
+    }
+    .about-upi img {
+        border-radius: 0px 0px 35px 35px;
+    }
+
+    #our-team .teams{
+        flex-wrap: wrap;
+    }
+
+    .container_footer_utama{
+        flex-wrap: wrap;
+    }
+
+    .container_footer_2{
+        margin-top: 30px;
+    }
+
+    .container_footer_2 .fotnav-links{
+        flex-direction: column;
+
+    }
+    .container_footer_2 .fotnav-links li{
+        margin-bottom: 40px;
+    }
+    .footer_desc{
+        /* border: 1px solid black; */
+        width: 100%;
+    }
+    .footer_desc .desc_singkat{
+        margin: 10px 0;
+        text-align: justify;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 762px) {
+    #home h1 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    #navbar img{
+        width: 150px;
+    }
+    #navbar{
+        padding: 40px 10px;
+    }
+    #navbar .nav-links {
+        /* display: none; */
+        /* position: fixed;
+        padding-top: 100px;
+        background: #fff;
+        height: 100vh;
+        max-width: 300px;
+        transform: translate(100%);
+        top: 0vh;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        margin-left: -40px;
+        padding-left: 100px;
+        transition: transform 0.5s ease-in-out;
+        box-shadow: 5px 0px 10px 0px #aaa; */
+    }
+
+    .about-upi{
+        margin: 0px 20px 0px 20px;
+    }
+
+    .about-feature{
+        padding: 0px 20px 0px 20px;
+    }
+
+}
