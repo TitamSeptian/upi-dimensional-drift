@@ -193,6 +193,23 @@ body {
     color: rgb(0, 0, 0);
 }
 
+#navbar .nav-links .nav-item:last-child .nav-link {
+    /* width: 85%; */
+    padding: 10px 10px;
+    color: #fff;
+    border: 2px solid var(--color-1);
+    border-radius: 10px;
+    font-weight: 600;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: var(--color-1);
+}
+#navbar .nav-links .nav-item:last-child .nav-link:hover {
+    background-color: var(--color-1);
+    color: #fff;
+}
+
 .sidebar {
     top: 0;
     right: 0;
@@ -358,7 +375,7 @@ body {
     margin-top: 90px;
 }
 
-.about-us{
+.about-us {
     justify-content: center;
     border-radius: 35px;
     background-color: var(--color-3);
@@ -369,28 +386,28 @@ body {
     box-shadow: 16px 16px 16px 16px rgba(0, 0, 0, 0.2);
 }
 
-.about-title{
+.about-title {
     color: white;
 }
 
-.about-title h3{
+.about-title h3 {
     text-align: center;
     text-transform: uppercase;
     padding: 50px 20px 20px 20px;
 }
 
-.about-title p{
+.about-title p {
     text-align: center;
     text-align: justify;
     padding: 10px 20px;
     font-size: 16px;
 }
 
-.about-us img{
+.about-us img {
     border-radius: 0px 0px 35px 35px;
 }
 
-.about-feature{
+.about-feature {
     color: white;
     display: flex;
     justify-content: center;
@@ -402,7 +419,7 @@ body {
     margin-left: 25%; */
 }
 
-.about-system{
+.about-system {
     border-radius: 20px;
     display: flex;
     background-color: var(--color-1);
@@ -411,13 +428,13 @@ body {
     height: 150px;
 }
 
-.about-system img{
+.about-system img {
     width: 70px;
     margin: 20px;
     object-fit: contain;
 }
 
-.about-information{
+.about-information {
     border-radius: 20px;
     display: flex;
     background-color: var(--color-1);
@@ -426,35 +443,35 @@ body {
     height: 150px;
 }
 
-.about-information img{
+.about-information img {
     width: 70px;
     margin: 20px;
     object-fit: contain;
 }
 
-.about-item-descripsion{
+.about-item-descripsion {
     padding: 30px 20px 0px 0px;
 }
 
-@media (min-width: 1241px) { 
-    .about-us{
+@media (min-width: 1241px) {
+    .about-us {
         display: flex;
     }
 
-    .about-us img{
+    .about-us img {
         border-radius: 0px 35px 35px 0px;
     }
 }
 
-@media (max-width: 4098px) { 
-    .about-us img{
+@media (max-width: 4098px) {
+    .about-us img {
         height: auto;
         width: 100%;
     }
 }
 
-@media (min-width: 4098px) { 
-    .about-us img{
+@media (min-width: 4098px) {
+    .about-us img {
         padding-left: 1400px;
     }
 }
