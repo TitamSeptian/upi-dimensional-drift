@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,800;0,900;1,200;1,300;1,800;1,900&display=swap");
+@import url("./variable.css");
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-family: "Montserrat", sans-serif;
+    min-height: 100%;
+    background-image: url('../images/login/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#login {
+    margin: auto;
+    width: 50%;
+    margin-top: 90px;
+}
+
+.login-card{
+    justify-content: center;
+    border-radius: 5px;
+    background-color: white;
+    margin-bottom: 90px;
+    min-height: 400px;
+}
+
+.login-card:hover{
+    box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-content{
+    padding: 40px 20px 0px 20px;
+}
+
+.login-navigation a{
+    color: var(--color-3);
+    text-decoration: none;
+}
+
+.login-logo{
+    display: flex;
+    justify-content: center;
+}
+
+.login-title{
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.login-description{
+    text-align: center;
+    padding: 10px;
+    color: #6c757d!important;
+}
+
+.login-form{
+    padding: 10px;
+}
+
+.group-control{
+    display: block;
+    padding: 10px;
+}
+
+.form-control{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.group-control-text{
+    text-align: center;
+}
+
+.group-control-text a{
+    color: var(--color-3);
+    text-decoration: none;
+}
+
+.btn-submit{
+    width: 100%;
+    background-color: var(--color-3);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-submit:hover{
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.login-social-media{
+    padding: 10px;
+}
+
+.login-social-media p{
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.login-social-logo{
+    display: flex;
+    justify-content: center;
+}
+
+.logo-sosmed{
+    padding: 10px;
+}
+
+@media (max-width: 910px) { 
+    #login{
+        width: 90%;
+    }
+}
