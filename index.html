@@ -11,13 +11,6 @@
         <!-- hamburger css -->
         <link
             rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css"
-            integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-        <link
-            rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
             integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
             crossorigin="anonymous"
@@ -59,12 +52,12 @@
                     <a href="./index.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item item-normal">
-                    <a href="#about" class="nav-link">About</a>
+                    <a href="./index.html#about" class="nav-link">About</a>
                 </li>
                 <li class="nav-item item-normal">
                     <a href="./room-tour.html" class="nav-link">Room Tour</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item item-normal">
                     <a href="./gallery.html" class="nav-link">Gallery</a>
                 </li>
                 <li class="nav-item toggle-menu">
@@ -123,7 +116,14 @@
                 This 360° system is applied to see various facilities or rooms
                 on the UPI Cibiru campus more deeply or look like real.
             </p>
-            <button>See the Campus</button>
+            <button>
+                <a
+                    style="text-decoration: none; color: #fff"
+                    href="./room-tour.html"
+                >
+                    See the Campus</a
+                >
+            </button>
         </section>
         <section id="about">
             <!-- about disini -->
@@ -401,7 +401,7 @@
         </section>
 
         <!--Footer Section-->
-        
+
         <footer>
             <div class="container_footer_utama">
                 <div class="container_footer_1">
@@ -426,13 +426,17 @@
                     <div class="footer_navbar">
                         <ul class="fotnav-links">
                             <li class="fotnav-item">
-                                <a href="#" class="fotnav-link">Home</a>
+                                <a href="./index.html" class="fotnav-link"
+                                    >Home</a
+                                >
                             </li>
                             <li class="fotnav-item">
-                                <a href="#about" class="fotnav-link">About</a>
+                                <a href="./index.html#about" class="fotnav-link"
+                                    >About</a
+                                >
                             </li>
                             <li class="fotnav-item">
-                                <a href="#room-tour" class="fotnav-link"
+                                <a href="./room-tour.html" class="fotnav-link"
                                     >Room Tour</a
                                 >
                             </li>
@@ -496,12 +500,7 @@
                 <p>&copy; 2022 Sekolah Suzuran. All right reserved</p>
             </div>
         </footer>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
+        <script src="./assets/vendor/jquery/jquery.min.js"></script>
         <script src="./assets/js/script.js"></script>
         <script src="./assets/js/responsive.js"></script>
     </body>
