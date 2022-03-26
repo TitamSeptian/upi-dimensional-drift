@@ -1,5 +1,5 @@
 #upper {
-    background-image: url(../images/gallery/bghome.png);
+    background-image: url(../images/gallery/bghome.jpeg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -33,11 +33,131 @@
 
 .single-img {
     padding: 20px 20px 20px;
+    position: relative;
 }
 
 .single-img img {
     width: 400px;
     height: 300px;
+    transition: .10s ease;
+    border-radius: 1%;
+}
+
+.single-img:hover img {
+    opacity: 0.3;
+}
+
+.single-img:hover .middle {
+    opacity: 1;
+}
+
+.text {
+    background-color: #FFFFFF;
+    color: #131d32;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 10%;
+    cursor: pointer;
+  }
+
+.middle {
+    transition: .10s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.modal-wrapper {
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    position: fixed;
+    transform: translateY(150%);
+    transition: all 0.3s;
+}
+
+.modal-wrapper.active {
+    transform: translateY(0%);
+}
+
+/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    padding-top: 100px;
+    width: 800px;
+    height: 650px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    overflow: auto;
+    border-radius: 1%;
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    display: block;
+    margin: 0 auto;
+    width: 550px;
+    height: 450px;
+    border-radius: 1%;
+}
+
+/* Caption of Modal Image */
+#caption1, #caption2, #caption3, #caption4, #caption5, #caption6, #caption7, #caption8, #caption9 {
+    margin: auto;
+    width: 60%;
+    text-align: center;
+    color: #131d32;
+    padding-top: 30px;
+    font-size: 30px;
+}
+
+/* Add Animation */
+.modal-content, #caption1, #caption2, #caption3, #caption4, #caption5, #caption6, #caption7, #caption8, #caption9 {  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+  
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #131d32;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+
+.close:hover,
+.close:focus {
+    color: #c5c2c2;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .container_footer_utama {
