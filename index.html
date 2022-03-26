@@ -6,6 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>UPI Dimensional Drift</title>
         <link rel="stylesheet" href="./assets/css/styles.css" />
+        
+        <link rel="stylesheet" href="./assets/css/responsive.css">
+        <!-- hamburger css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css" integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
         <link
             rel="icon"
             type="image/png"
@@ -26,30 +37,74 @@
                     </div>
                 </div>
             </div>
-        </div>
+
+        </div> 
         <nav id="navbar" class="">
             <!-- nanti navbar disini -->
-            <img
-                src="./assets/images/logo/logo-with-text.png"
-                class="logo"
-                alt=""
-            />
+            <a href="#">
+                <img
+                    src="./assets/images/logo/logo-with-text.png"
+                    class="logo"
+                    alt=""
+                />
+            </a>
 
             <ul class="nav-links">
-                <li class="nav-item">
+                <li class="nav-item item-normal">
                     <a href="#" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item item-normal">
                     <a href="#about" class="nav-link">About</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#room-tour" class="nav-link">Room Tour</a>
+                <li class="nav-item item-normal">
+                    <a href="./room-tour.html" class="nav-link">Room Tour</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item item-normal">
                     <a href="#gallery" class="nav-link">Gallery</a>
                 </li>
+                <li class="nav-item toggle-menu">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-align-justify"></i>
+                    </a>
+                </li>
             </ul>
+
+            <button class="hamburger hamburger--collapse  hidden" type="button">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+            </button>
         </nav>
+        <!-- navbar on responsive -->
+        <div class="sidebar hide">
+            <i class="times">&times;</i>
+            <!-- <i class="fa-solid fa-xmark"></i> -->
+            <div class="brand">
+                <a href="./index.html">
+                    <span>Upi <br />Dimensional Drift</span>
+                </a>
+            </div>
+            <ul class="menu">
+                <a href="./index.html">
+                    <li>Home</li>
+                </a>
+                <a href="./index.html#about">
+                    <li>About</li>
+                </a>
+                <a href="./gallery.html">
+                    <li>Gallery</li>
+                </a>
+                <a href="./room-tour.html">
+                    <li>Room Tour</li>
+                </a>
+            </ul>
+            <div class="sign-in">
+                <a href="./login.html">
+                    <button>Login</button>
+                </a>
+            </div>
+        </div>
+        <!-- ------------ -->
         <section id="home">
             <!-- home disini -->
             <h1 class="about-title">
@@ -426,11 +481,18 @@
                     </div>
                 </div>
             </div>
-
+            <hr style="height:1px;border:none;color:#333;background-color:#333;">
             <div class="container_footer_legal">
                 <p>&copy; 2022 Sekolah Suzuran. All right reserved</p>
             </div>
         </footer>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
         <script src="./assets/js/script.js"></script>
+        <script src="./assets/js/responsive.js"></script>
     </body>
 </html>
