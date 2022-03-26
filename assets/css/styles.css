@@ -261,7 +261,7 @@ body {
     color: white;
     text-align: center;
     text-transform: uppercase;
-    padding: 100px 20px 20px 20px;
+    /* padding: 100px 20px 20px 20px; */
 }
 
 .item-deskripsi {
@@ -317,6 +317,7 @@ body {
     display: flex;
     background-color: var(--color-1);
     width: 400px;
+    height: 150px;
 }
 
 .about-item-information img {
