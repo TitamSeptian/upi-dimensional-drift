@@ -29,6 +29,21 @@
         <title>Room Tour</title>
     </head>
     <body>
+        <div class="preloader">
+            <div class="center">
+                <div class="wrapper text-center">
+                    <img src="./assets/images/logo/logo.png" alt="logo" />
+                    <h2 class="preloader-text font-weight-bold">
+                        UPI DIMENSIONAL DRIFT
+                    </h2>
+                    <div class="spinner">
+                        <div class="dot1"></div>
+                        <div class="dot2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- navbar desktop -->
         <nav id="navbar" class="">
             <!-- nanti navbar disini -->
             <img
@@ -38,20 +53,55 @@
             />
 
             <ul class="nav-links">
-                <li class="nav-item">
-                    <a href="./index.html" class="nav-link">Home</a>
+                <li class="nav-item item-normal">
+                    <a href="#" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item item-normal">
                     <a href="#about" class="nav-link">About</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item item-normal">
                     <a href="./room-tour.html" class="nav-link">Room Tour</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item item-normal">
                     <a href="#gallery" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item toggle-menu">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-align-justify"></i>
+                    </a>
                 </li>
             </ul>
         </nav>
+        <!-- navbar on responsive -->
+        <div class="sidebar hide">
+            <i class="times">&times;</i>
+            <!-- <i class="fa-solid fa-xmark"></i> -->
+            <div class="brand">
+                <a href="./index.html">
+                    <span>Upi <br />Dimensional Drift</span>
+                </a>
+            </div>
+            <ul class="menu">
+                <a href="./index.html">
+                    <li>Home</li>
+                </a>
+                <a href="./index.html#about">
+                    <li>About</li>
+                </a>
+                <a href="./gallery.html">
+                    <li>Gallery</li>
+                </a>
+                <a href="./room-tour.html">
+                    <li>Room Tour</li>
+                </a>
+            </ul>
+            <div class="sign-in">
+                <a href="./login.html">
+                    <button>Login</button>
+                </a>
+            </div>
+        </div>
+        <!-- ------------ -->
         <section class="panorama">
             <div id="panorama-360-view" class="picture"></div>
             <div class="container">
@@ -260,7 +310,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         ></script>
-        <script></script>
+        <script src="./assets/js/script.js"></script>
         <script src="./assets/js/room-tour.js"></script>
     </body>
 </html>
