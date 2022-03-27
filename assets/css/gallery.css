@@ -94,6 +94,7 @@
     z-index: 2;
     padding-top: 100px;
     width: 800px;
+    /* width: 70%; */
     height: 650px;
     left: 50%;
     top: 50%;
@@ -108,8 +109,29 @@
     display: block;
     margin: 0 auto;
     width: 550px;
+    /* width: 80%; */
     height: 450px;
+    /* height: auto; */
     border-radius: 1%;
+}
+
+@media (max-width:415px){
+    .single-img img{
+        width: 100%;
+    }
+}
+
+@media (max-width: 820px) {
+    .modal{
+        width: 90%;
+        height: auto;
+        padding: 50px 0;
+    }
+
+    .modal-content{
+        width: 75%;
+        height: auto;
+    }
 }
 
 /* Caption of Modal Image */

@@ -631,7 +631,7 @@ body {
 
 /* Footer Style sampe di sini*/
 
-@media (max-width: 762px) {
+@media (max-width: 768px) {
     #our-team h1 {
         font-size: 32px;
         margin-bottom: 20px;

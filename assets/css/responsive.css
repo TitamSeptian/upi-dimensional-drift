@@ -121,6 +121,37 @@
     }
 }
 
+@media (max-width:820px){
+    #navbar .nav-links {
+        width: 10%;
+        /* border: 1px solid red; */
+    }
+
+    .toggle-menu {
+        display: inline-block;
+        z-index: 999;
+        /* opacity: 1; */
+    }
+
+    .item-normal {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    #navbar .nav-links{
+        width: 10%;
+    }
+
+    .toggle-menu{
+        display: inline-block;
+    }
+
+    .item-normal{
+        display: none;
+    }
+}
+
 @media (max-width: 762px) {
     #home h1 {
         font-size: 40px;
