@@ -10,6 +10,15 @@
     color: #FFFFFF !important;
 }
 
+#navbar .nav-links .nav-item:last-child .nav-link {
+    border-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+}
+#navbar .nav-links .nav-item:last-child .nav-link:hover {
+    background-color: #FFFFFF !important;
+    color: #131d32 !important;
+}
+
 #home .about-title {
     color: #FFFFFF !important;
 }
