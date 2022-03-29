@@ -67,6 +67,7 @@ html{
 .group-control{
     display: block;
     padding: 10px;
+    width: 100%;
 }
 
 .form-control{
@@ -101,6 +102,26 @@ html{
 
 .btn-submit:hover{
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.group-control-2{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    padding: 10px;
+}
+
+.btn-back{
+    text-decoration: none;
+    width: 100%;
+    background-color: none;
+    color: rgb(0, 0, 0);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .login-social-media{

@@ -16,9 +16,6 @@
         <section id="login">
             <div class="login-card">
                 <div class="login-content">
-                    <div class="login-navigation">
-                        Back to <a class="" href="login.html">Login</a>
-                    </div>
                     <div class="login-logo">
                         <img src="assets/images/logo/logo.png" />
                     </div>
@@ -26,7 +23,7 @@
                         Welcome To UPI Dimensional Drift
                     </div>
                     <div class="login-form">
-                        <form action="#" method="post" style="display: inline">
+                        <form id="form-register" action="index.html" method="post" style="display: inline">
                             <div class="group-control">
                                 <label for="name">Name</label>
                                 <input
@@ -34,6 +31,7 @@
                                     type="text"
                                     name="name"
                                     id="name"
+                                    required
                                 />
                             </div>
                             <div class="group-control">
@@ -43,6 +41,7 @@
                                     type="email "
                                     name="email"
                                     id="email"
+                                    required
                                 />
                             </div>
                             <div class="group-control">
@@ -52,6 +51,7 @@
                                     type="text"
                                     name="username"
                                     id="username"
+                                    required
                                 />
                             </div>
                             <div class="group-control">
@@ -61,12 +61,18 @@
                                     type="password"
                                     name="password"
                                     id="password"
+                                    required
                                 />
                             </div>
                             <div class="group-control">
                                 <button class="btn-submit">
                                     Create account
                                 </button>
+                            </div>
+                            <div class="group-control-2">
+                                <a href="login.html" class="btn-back">
+                                    Already Have account?
+                                </a>
                             </div>
                         </form>
                     </div>
@@ -75,3 +81,10 @@
         </section>
     </body>
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#form-register").validate();
+    });
+</script>
