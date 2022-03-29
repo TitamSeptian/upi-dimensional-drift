@@ -1,0 +1,31 @@
+#about {
+    /* margin: 0 1rem; */
+    display: block;
+}
+
+#about .wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#about .wrapper .logo {
+    width: 30%;
+    display: flex;
+    padding: 0 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+#about .wrapper .logo img {
+    width: 36em;
+    height: auto;
+}
+#about .wrapper .text {
+    /* width: 70%; */
+    padding: 0 1rem;
+}
+
+#about .wrapper .text p {
+    text-align: justify;
+}
