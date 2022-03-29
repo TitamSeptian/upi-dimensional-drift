@@ -14,6 +14,20 @@ const p360 = pannellum.viewer("panorama-360-view", {
             text: "ini sesuatu",
             // URL: "https://artbma.org/",
         },
+        {
+            pitch: -0.6862039444864013,
+            yaw: -29.34946088046638,
+            type: "info",
+            text: "ini sesuatu 2",
+            // URL: "https://artbma.org/",
+        },
+        {
+            pitch: -0.6586549905138257,
+            yaw: 27.682939233330217,
+            type: "info",
+            text: "ini sesuatu 2",
+            // URL: "https://artbma.org/",
+        },
     ],
 });
 const divPannelum = document.getElementById("panorama-360-view");
