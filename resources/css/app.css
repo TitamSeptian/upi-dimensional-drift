@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        font-family: "Montserrat", sans-serif;
+    }
+}
+
+.humberger-line {
+    @apply w-[30px] h-[2px] my-2 bg-black;
+}

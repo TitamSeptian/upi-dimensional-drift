@@ -9,4 +9,9 @@ $(document).ready(function () {
     $(".toggle-menu").click(function () {
         $(".sidebar").removeClass("hide");
     });
+
+    $("#humberger").click(function () {
+        $("#humberger").toggleClass("active");
+        $("#nav").toggleClass("hidden");
+    });
 });
