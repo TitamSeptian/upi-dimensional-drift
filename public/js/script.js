@@ -13,6 +13,7 @@ $(document).ready(function () {
     $("#humberger").click(function () {
         $("#humberger").toggleClass("active");
         $("#nav").toggleClass("hidden");
+        $("#nav").toggleClass("text-black");
     });
 
     $(".info-destination .content")
@@ -75,6 +76,21 @@ $(document).ready(function () {
             },
             500
         );
+    });
+    const modal = $("#modal");
+    $("#btn-close-modal").click(function () {
+        modal.addClass("hidden");
+    });
+    $(".btn-detail").click(function () {
+        const eleemnt = $(this).parent();
+        const title = eleemnt.find(".desc h1").html();
+        const body = eleemnt.find(".desc p").html();
+        const img = eleemnt.find("img").attr("src");
+        modal.find("#modal-desc").html(body);
+        modal.find("#modal-title").html(title);
+        modal.find("#img-modal").attr("src", img);
+        modal.removeClass("hidden");
+        console.log();
     });
 });
 

@@ -227,3 +227,9 @@
     font-size: 18px;
     margin-right: 10px;
 }
+
+/* gallery */
+.gallery:hover .btn-detail {
+    display: block;
+    transition: all 0.4s;
+}
