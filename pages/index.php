@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -290,7 +291,7 @@
                                 </li>
                                 <li class="flex mx-8 text-center group">
                                     <a
-                                        href=""
+                                        href="login.php"
                                         class="w-full outline outline-1 outline-color1 shadow-lg py-3 rounded-lg group-hover:bg-color1 group-hover:text-white group-hover:outline-none lg:px-10"
                                     >
                                         Login</a
