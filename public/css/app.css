@@ -1269,24 +1269,14 @@ html {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.text-color4 {
-  --tw-text-opacity: 1;
-  color: rgb(0 163 225 / var(--tw-text-opacity));
-}
-
-.text-pink-500 {
-  --tw-text-opacity: 1;
-  color: rgb(236 72 153 / var(--tw-text-opacity));
-}
-
-.text-color1 {
-  --tw-text-opacity: 1;
-  color: rgb(11 31 65 / var(--tw-text-opacity));
-}
-
 .text-color3 {
   --tw-text-opacity: 1;
   color: rgb(0 114 206 / var(--tw-text-opacity));
+}
+
+.text-color4 {
+  --tw-text-opacity: 1;
+  color: rgb(0 163 225 / var(--tw-text-opacity));
 }
 
 .underline {
