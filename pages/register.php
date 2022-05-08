@@ -1,3 +1,12 @@
+<?php
+    // require('../resources/php/connections.php');
+    require('../resources/php/functions.php');
+
+    if(isset($_POST['submit'])){
+        registerAcc();
+        // header("Location: register.php?register=success");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -31,24 +40,59 @@
                         <h1 class="text-xl font-semibold">
                             Welcome To UPI Dimensional Drift
                         </h1>
-                        <p>Please Login To Continue</p>
+                        <p>Register Account</p>
                     </div>
-                    <form action="" method="POST">
+                    <form action="register.php" method="POST">
+                        <!-- email, password, confirm password, nama depan belakang -->
+                        <div class="">
+                            <label
+                                class="block text-grey-darker text-sm font-bold mb-2"
+                                for="firstName"
+                            >
+                                First Name
+                            </label>
+                            <input
+                                class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3"
+                                id="firstName"
+                                type="text"
+                                name="firstName"
+                                placeholder="First Name"
+                                required
+                            />
+                        </div>
+                        <div class="">
+                            <label
+                                class="block text-grey-darker text-sm font-bold mb-2"
+                                for="lastName"
+                            >
+                                Last Name
+                            </label>
+                            <input
+                                class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3"
+                                id="lastName"
+                                type="text"
+                                name="lastName"
+                                placeholder="Last Name"
+                                required
+                            />
+                        </div>
                         <div class="mb-4">
                             <label
                                 class="block text-grey-darker text-sm font-bold mb-2"
-                                for="username"
+                                for="email"
                             >
-                                Username
+                                Email
                             </label>
                             <input
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                                id="username"
-                                type="text"
-                                placeholder="Username"
+                                id="email"
+                                type="email"
+                                name="email"
+                                placeholder="Email"
+                                required
                             />
                         </div>
-                        <div class="mb-6">
+                        <div class="">
                             <label
                                 class="block text-grey-darker text-sm font-bold mb-2"
                                 for="password"
@@ -59,15 +103,35 @@
                                 class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3"
                                 id="password"
                                 type="password"
+                                name="password"
                                 placeholder="******"
+                                required
+                            />
+                        </div>
+                        <div class="">
+                            <label
+                                class="block text-grey-darker text-sm font-bold mb-2"
+                                for="confirmPassword"
+
+                            >
+                                Confirm Password
+                            </label>
+                            <input
+                                class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3"
+                                id="confirmPassword"
+                                type="password"
+                                name="confirmPassword"
+                                placeholder="******"
+                                required
                             />
                         </div>
                         <div class="flex items-center justify-between">
                             <button
                                 class="text-white bg-color3 font-bold py-2 px-4 rounded"
                                 type="submit"
+                                name="submit"
                             >
-                                Sign In
+                                Sign Up
                             </button>
                             <!-- <a
                                 class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker"
@@ -78,8 +142,8 @@
                         </div>
                     </form>
                     <p class="text-thin text-center mt-4">
-                        Don't have an account?
-                        <a href="" class="underline text-color4">Sign-up Now</a>
+                        Already have an account?
+                        <a href="" class="underline text-color4">Sign in instead</a>
                     </p>
                 </div>
             </div>
