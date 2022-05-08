@@ -31,7 +31,7 @@ function connectMySQL2()
 
 function mysqlCon()
 {
-    $host        = "localhost:4000";
+    $host        = "localhost:3306";
     $username    = "root";
     $password    = "123qwe123";
     $db          = "upi_dimensional_drift";
