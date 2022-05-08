@@ -1,10 +1,10 @@
 <?php
 function connectMySQL()
 {
-    $PORT = '4000'; // default 3306
+    $PORT = '3306'; // default 3306
     $DATABASE_HOST = 'localhost:' . $PORT;
     $DATABASE_USER = 'root';
-    $DATABASE_PASS = '123qwe123';
+    $DATABASE_PASS = '';
     $DATABASE_NAME = 'db_pweb';
     try {
         return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
@@ -16,10 +16,10 @@ function connectMySQL()
 
 function mysqlCon()
 {
-    $host        = "localhost:4000";
+    $host        = "localhost:3306";
     $username    = "root";
-    $password    = "123qwe123";
-    $db            = "db_pweb";
+    $password    = "";
+    $db          = "db_pweb";
 
     $mysqli     = new mysqli($host, $username, $password, $db);
     if (mysqli_connect_errno()) {
