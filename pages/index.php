@@ -86,6 +86,113 @@ $active = $_SESSION['Session_status'] ?? '' ?>
                                 <g style="mix-blend-mode: screen" opacity="0.4">
                                     <path d="M228.021 86.5042L230.418 86.2378C230.189 86.363 229.943 86.453 229.688 86.5042C229.431 86.5926 229.161 86.6379 228.889 86.6374H228.75L228.021 86.5042Z" fill="white" />
                                 </g>
+<<<<<<< HEAD
+                                <defs>
+                                    <linearGradient
+                                        id="paint0_linear_159_3"
+                                        x1="1443.76"
+                                        y1="1492.14"
+                                        x2="1443.76"
+                                        y2="1794.12"
+                                        gradientUnits="userSpaceOnUse"
+                                    >
+                                        <stop stop-color="#00A3E1" />
+                                        <stop
+                                            offset="0.247"
+                                            stop-color="#355881"
+                                        />
+                                        <stop
+                                            offset="0.75"
+                                            stop-color="#1F324E"
+                                        />
+                                        <stop offset="1" stop-color="#131D32" />
+                                    </linearGradient>
+                                    <linearGradient
+                                        id="paint1_linear_159_3"
+                                        x1="1681.05"
+                                        y1="1492.05"
+                                        x2="1372.68"
+                                        y2="1492.05"
+                                        gradientUnits="userSpaceOnUse"
+                                    >
+                                        <stop stop-color="#0B1F41" />
+                                        <stop offset="1" stop-color="#131D32" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <span class="font-semibold"
+                                >Upi <br />
+                                Dimensional Drift</span
+                            >
+                        </a>
+                    </div>
+                    <div class="flex items-center px-4">
+                        <button
+                            id="humberger"
+                            type="button"
+                            name="button"
+                            class="block absolute right-4 lg:hidden"
+                        >
+                            <i class="bx bx-menu text-4xl"></i>
+                        </button>
+                        <nav
+                            id="nav"
+                            class="hidden py-5 absolute lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full"
+                        >
+                            <ul class="block sm:flex font-semibold">
+                                <li class="group">
+                                    <a
+                                        href=""
+                                        class="py-2 mx-8 flex group-hover:text-color2"
+                                        >Home</a
+                                    >
+                                </li>
+                                <li class="group">
+                                    <a
+                                        href=""
+                                        class="py-2 mx-8 flex group-hover:text-color2"
+                                        >About</a
+                                    >
+                                </li>
+                                <li class="group">
+                                    <a
+                                        href=""
+                                        class="py-2 mx-8 flex group-hover:text-color2"
+                                        >Room Tour</a
+                                    >
+                                </li>
+                                <li class="group">
+                                    <a
+                                        href=""
+                                        class="py-2 mx-8 flex group-hover:text-color2"
+                                        >Gallery</a
+                                    >
+                                </li>
+                                <?php
+                                    if (!isset($_SESSION['Session_status'])) {
+                                ?>
+                                <li class="flex mx-8 text-center group">
+                                    <a
+                                        href="login.php"
+                                        class="w-full outline outline-1 outline-color1 shadow-lg py-3 rounded-lg group-hover:bg-color1 group-hover:text-white group-hover:outline-none lg:px-10"
+                                    >
+                                        Login</a
+                                    >
+                                </li>
+                                <?php }else{ ?>
+                                <li class="flex mx-8 text-center group">
+                                        <a
+                                            href="logout.php"
+                                            class="w-full outline outline-1 outline-color1 shadow-lg py-3 rounded-lg group-hover:bg-color1 group-hover:text-white group-hover:outline-none lg:px-10"
+                                        >
+                                            Logout</a
+                                        >
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </nav>
+                    </div>
+=======
                             </g>
                             <defs>
                                 <linearGradient id="paint0_linear_159_3" x1="1443.76" y1="1492.14" x2="1443.76" y2="1794.12" gradientUnits="userSpaceOnUse">
@@ -134,6 +241,7 @@ $active = $_SESSION['Session_status'] ?? '' ?>
                             </li>
                         </ul>
                     </nav>
+>>>>>>> main
                 </div>
             </div>
         </div>
