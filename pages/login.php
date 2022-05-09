@@ -1,3 +1,24 @@
+<?php
+session_start();
+include '../resources/php/connections.php';
+$conn = connectMySQL();
+if (isset($_COOKIE['remember_token'])) {
+    $row = $conn->prepare("select * from user_token where token = :token");
+    $row->bindParam(':token', $_COOKIE['remember_token']);
+    $row->execute();
+    $user_id = $row->fetch(PDO::FETCH_ASSOC)['user_id'];
+    $user = $conn->prepare("select * from users where id = :id");
+    $user->bindParam(':id', $user_id);
+    $user->execute();
+    $user = $user->fetch(PDO::FETCH_ASSOC);
+    $_SESSION['Session_email'] = $user['email'];
+    $_SESSION['Session_firstName'] = $user['first_name'];
+    $_SESSION['Session_lastName'] = $user['last_name'];
+    $_SESSION['Session_status'] = "Active";
+    header("location:../../pages/index.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,13 +46,13 @@
                     </h1>
                     <?php
                     if (isset($_GET['status'])) {
-                        echo "<p>". $_GET['status'] ."</p>";
-                    }else{
-                        echo "<p>Please Login To Continue</p>";
+                        echo "<p class='text-white bg-red-400/70 py-1 px-4 rounded-lg'>" . $_GET['status'] . "</p>";
+                    } else {
+                        echo "<p class=''>Please Login To Continue</p>";
                     }
                     ?>
                 </div>
-                <form action="proses_login.php" method="POST">
+                <form action="../resources/php/proses_login.php" method="POST">
                     <div class="mb-4">
                         <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
                             E-Mail

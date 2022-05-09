@@ -1,28 +1,30 @@
 <?php
+include 'connections.php';
+function PDOConnection()
+{
+    $dsn = 'mysql:host=localhost;dbname=upi_dimensional_drift';
+    $username = 'root';
+    $password = '';
 
-function PDOConnection(){
-        $dsn = 'mysql:host=localhost;dbname=upi_dimensional_drift';
-        $username = 'root';
-        $password = '';
-
-        try{
-            $db = new PDO($dsn, $username, $password);
-            // echo "Connected successfulle";
-        }catch(PDOException $e){
-            echo "Connection failed: " . $e->getMessage();
-            exit();
+    try {
+        $db = new PDO($dsn, $username, $password);
+        // echo "Connected successfulle";
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+        exit();
     }
 }
 
 
-function registerAcc(){
+function registerAcc()
+{
     PDOConnection();
     $host = "localhost";
     $username = "root";
     $password = "";
     $dbname = "upi_dimensional_drift";
 
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $conn = connectMySQL();
 
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -35,13 +37,13 @@ function registerAcc(){
 
     //cek if email is exist
     $stmt = $conn->prepare("SELECT * FROM users WHERE email=?");
-    $stmt->execute([$email]); 
+    $stmt->execute([$email]);
     $user = $stmt->fetch();
     if ($user) {
         // email found
         echo "<script>alert('Email already registered! Try new one')</script>";
         return false;
-    }else{
+    } else {
 
         // cek password confirm
         if ($password !== $password2) {
@@ -49,7 +51,7 @@ function registerAcc(){
                     alert('Password Confirmation not match!');
                 </script>";
             return false;
-        }else{
+        } else {
             $conn->exec($sql);
             echo "<script>
                 alert('Registration Successful!');
@@ -57,5 +59,3 @@ function registerAcc(){
         }
     }
 }
-
-?>
