@@ -18,6 +18,7 @@ if ($count > 0) {
     $_SESSION['Session_status'] = "Active";
     header("location:index.php");
 }else{
-    header("location:login.php?status=Login Gagal");
+    $_SESSION['Session_flash'] = "Login Gagal, SilahKan Cek Kembali Email dan Password Anda";
+    header("location:login.php");
 }
 ?>

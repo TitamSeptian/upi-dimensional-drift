@@ -289,6 +289,9 @@
                                         >Gallery</a
                                     >
                                 </li>
+                                <?php
+                                    if (!isset($_SESSION['Session_status'])) {
+                                ?>
                                 <li class="flex mx-8 text-center group">
                                     <a
                                         href="login.php"
@@ -297,6 +300,16 @@
                                         Login</a
                                     >
                                 </li>
+                                <?php }else{ ?>
+                                <li class="flex mx-8 text-center group">
+                                        <a
+                                            href="logout.php"
+                                            class="w-full outline outline-1 outline-color1 shadow-lg py-3 rounded-lg group-hover:bg-color1 group-hover:text-white group-hover:outline-none lg:px-10"
+                                        >
+                                            Logout</a
+                                        >
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </nav>
                     </div>

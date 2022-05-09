@@ -23,15 +23,18 @@
                     <h1 class="text-xl font-semibold">
                         Welcome To UPI Dimensional Drift
                     </h1>
-                    <?php
-                    if (isset($_GET['status'])) {
-                        echo "<p>". $_GET['status'] ."</p>";
-                    }else{
-                        echo "<p>Please Login To Continue</p>";
-                    }
-                    ?>
                 </div>
-                <form action="proses_login.php" method="POST">
+                <?php
+                    session_start();
+                    if (!isset($_SESSION['Session_flash'])) {
+                        echo "<p class='m-1 text-center p-1'>Please Login To Continue</p>";
+                    }else{
+                        $flash_session = $_SESSION['Session_flash'];
+                        unset($_SESSION['Session_flash']);
+                        echo "<div class='m-4 rounded-md border-2 border-red-200 bg-red-300 p-1 text-center font-medium text-red-600'>". $flash_session ."</div>";
+                    }
+                ?>
+                <form action="proses_login.php" id="formLogin" method="POST">
                     <div class="mb-4">
                         <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
                             E-Mail
@@ -70,3 +73,20 @@
 </body>
 
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#formLogin").validate({
+            rules: {
+                email : {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                },
+            }
+        });
+    });
+</script>
