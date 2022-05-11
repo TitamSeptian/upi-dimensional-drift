@@ -816,6 +816,14 @@ html {
   order: 1;
 }
 
+.m-1 {
+  margin: 0.25rem;
+}
+
+.m-4 {
+  margin: 1rem;
+}
+
 .mx-8 {
   margin-left: 2rem;
   margin-right: 2rem;
@@ -1063,12 +1071,25 @@ html {
   border-radius: 1rem;
 }
 
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border {
   border-width: 1px;
+}
+
+.border-red-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(252 165 165 / var(--tw-border-opacity));
 }
 
 .bg-white {
@@ -1121,6 +1142,10 @@ html {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .py-3 {
@@ -1255,6 +1280,10 @@ html {
   font-weight: 300;
 }
 
+.font-medium {
+  font-weight: 500;
+}
+
 .tracking-wide {
   letter-spacing: 0.025em;
 }
@@ -1358,6 +1387,13 @@ html {
   width: 30px;
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.error {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 /* roomtour */
@@ -1732,14 +1768,6 @@ html {
 
   .md\:order-2 {
     order: 2;
-  }
-
-  .md\:flex {
-    display: flex;
-  }
-
-  .md\:max-w-\[250px\] {
-    max-width: 250px;
   }
 
   .md\:basis-1\/3 {

@@ -44,30 +44,17 @@ if (isset($_COOKIE['remember_token'])) {
                     <h1 class="text-xl font-semibold">
                         Welcome To UPI Dimensional Drift
                     </h1>
-<<<<<<< HEAD
                 </div>
                 <?php
-                    session_start();
-                    if (!isset($_SESSION['Session_flash'])) {
-                        echo "<p class='m-1 text-center p-1'>Please Login To Continue</p>";
-                    }else{
-                        $flash_session = $_SESSION['Session_flash'];
-                        unset($_SESSION['Session_flash']);
-                        echo "<div class='m-4 rounded-md border-2 border-red-200 bg-red-300 p-1 text-center font-medium text-red-600'>". $flash_session ."</div>";
-                    }
+                if (!isset($_SESSION['Session_flash'])) {
+                    echo "<p class='m-1 text-center p-1'>Please Login To Continue</p>";
+                } else {
+                    $flash_session = $_SESSION['Session_flash'];
+                    unset($_SESSION['Session_flash']);
+                    echo "<div class='m-4 rounded-md border-2 border-red-300 bg-red-400/70 p-1 text-center font-medium text-white'>" . $flash_session . "</div>";
+                }
                 ?>
-                <form action="proses_login.php" id="formLogin" method="POST">
-=======
-                    <?php
-                    if (isset($_GET['status'])) {
-                        echo "<p class='text-white bg-red-400/70 py-1 px-4 rounded-lg'>" . $_GET['status'] . "</p>";
-                    } else {
-                        echo "<p class=''>Please Login To Continue</p>";
-                    }
-                    ?>
-                </div>
-                <form action="../resources/php/proses_login.php" method="POST">
->>>>>>> main
+                <form action="../resources/php/proses_login.php" id="formLogin" method="POST">
                     <div class="mb-4">
                         <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
                             E-Mail
@@ -98,7 +85,7 @@ if (isset($_COOKIE['remember_token'])) {
                 </form>
                 <p class="text-thin text-center mt-4">
                     Don't have an account?
-                    <a href="" class="underline text-color4">Sign-up Now</a>
+                    <a href="register.php" class="underline text-color4">Sign-up Now</a>
                 </p>
             </div>
         </div>
@@ -106,13 +93,13 @@ if (isset($_COOKIE['remember_token'])) {
 </body>
 
 </html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script src="../public/vendor/jquery/jquery.min.js"></script>
+<script src="../public/vendor/jquery-validate/jquery.validate.min.js"></script>
 <script>
     $(document).ready(function() {
         $("#formLogin").validate({
             rules: {
-                email : {
+                email: {
                     required: true,
                     email: true
                 },

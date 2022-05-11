@@ -98,7 +98,8 @@ const p360 = pannellum.viewer("panorama-360-view", {
     type: "equirectangular",
     // panorama: "assets/360images/360-image.jpg",
     panorama:
-        "https://res.cloudinary.com/dukthftsk/image/upload/v1619363405/WhatsApp_Image_2021-04-25_at_6.27.21_PM_bdnioe.jpg",
+        // "https://res.cloudinary.com/dukthftsk/image/upload/v1619363405/WhatsApp_Image_2021-04-25_at_6.27.21_PM_bdnioe.jpg",
+        "/public/360images/gedung-i.jpg",
     autoLoad: true,
     compass: false,
     // autoRotate: -2,
