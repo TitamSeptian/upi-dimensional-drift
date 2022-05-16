@@ -18,17 +18,19 @@ https://upi-dimensional-drift.herokuapp.com/
 | Rony Wahyu       | 2006172 | [Github](https://github.com/ronywahyuu)    |
 | Septian Pradipta | 2007428 | [Github](https://github.com/TitamSeptian)  |
 
+## how to run this project
+
 ```bash
 # clone repo
 $ git clone "https://github.com/TitamSeptian/upi-dimensional-drift.git"
-# add cahnges to stags
-$ git add .
-# commit changes
-$ git commit -m "pesan contoh : ehh bang"
-# push to repo
-$ git push -u origin main
-# check status
-$ git status
-# sync to repo
-$ git pull
+# install dependency
+$ npm install
+# -----------------------
+# execute .sql file with database named "upi_dimensional_drift"
+# -----------------------
+# require php
+# start local development server
+$ php -S localhost:8888
 ```
+
+if you're using xampp or laragon you can create your virtual host

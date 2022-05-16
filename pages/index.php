@@ -110,16 +110,16 @@
                     <nav id="nav" class="hidden py-5 absolute lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full">
                         <ul class="block sm:flex font-semibold">
                             <li class="group">
-                                <a href="" class="py-2 mx-8 flex group-hover:text-color2">Home</a>
+                                <a href="index.php" class="py-2 mx-8 flex group-hover:text-color2">Home</a>
                             </li>
                             <li class="group">
-                                <a href="" class="py-2 mx-8 flex group-hover:text-color2">About</a>
+                                <a href="about.php" class="py-2 mx-8 flex group-hover:text-color2">About</a>
                             </li>
                             <li class="group">
-                                <a href="" class="py-2 mx-8 flex group-hover:text-color2">Room Tour</a>
+                                <a href="room-tour.php" class="py-2 mx-8 flex group-hover:text-color2">Room Tour</a>
                             </li>
                             <li class="group">
-                                <a href="" class="py-2 mx-8 flex group-hover:text-color2">Gallery</a>
+                                <a href="gallery.php" class="py-2 mx-8 flex group-hover:text-color2">Gallery</a>
                             </li>
                             <?php
                             if (!isset($_SESSION['Session_status'])) {
@@ -174,8 +174,9 @@
                     real campus environment.
                 </p>
             </div>
+            <!-- <div class="md:order-2 md:basis-2/3 flex relative w-full bg-[url('/public/images/about/about-upi.png')] bg-cover h-96"> -->
             <div class="md:order-2 md:basis-2/3 flex relative w-full">
-                <img src="/public/images/about/about-upi.png" alt="foto upi" class="w-fit" />
+                <img src="/public/images/about/about-upi.png" alt="foto upi" class="object-contain w-full h-full" />
             </div>
         </div>
     </section>
