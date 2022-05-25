@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
                     </h1>
                     <p>Register Account</p>
                 </div>
-                <form action="../resources/php/auth/prosesRegister.php" method="POST" id="form-regis">
+                <form action="<?= base_url(); ?>/resources/php/auth/prosesRegister.php" method="POST" id="form-regis">
                     <!-- email, password, confirm password, nama depan belakang -->
                     <div class="">
                         <label class="block text-grey-darker text-sm font-bold mb-2" for="firstName">

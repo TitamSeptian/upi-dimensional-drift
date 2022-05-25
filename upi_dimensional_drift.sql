@@ -11,7 +11,7 @@
  Target Server Version : 50733
  File Encoding         : 65001
 
- Date: 25/05/2022 20:37:18
+ Date: 25/05/2022 21:18:49
 */
 
 SET NAMES utf8mb4;
@@ -25,15 +25,13 @@ CREATE TABLE `facilities`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `facility` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `icon` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `room_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `room_id`(`room_id`) USING BTREE,
-  CONSTRAINT `facilities_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of facilities
 -- ----------------------------
+INSERT INTO `facilities` VALUES (1, 'parking', '<i class=\'bx bxs-parking\'></i>');
 
 -- ----------------------------
 -- Table structure for gallery
@@ -55,6 +53,25 @@ CREATE TABLE `gallery`  (
 
 -- ----------------------------
 -- Records of gallery
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for room_details
+-- ----------------------------
+DROP TABLE IF EXISTS `room_details`;
+CREATE TABLE `room_details`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `facility_id` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `facility_id`(`facility_id`) USING BTREE,
+  INDEX `room_id`(`room_id`) USING BTREE,
+  CONSTRAINT `room_details_ibfk_1` FOREIGN KEY (`facility_id`) REFERENCES `facilities` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `room_details_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of room_details
 -- ----------------------------
 
 -- ----------------------------
