@@ -1,4 +1,5 @@
 <?php session_start();
+include '../resources/php/functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +13,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/public/css/app.css" />
     <link rel="icon" type="image/png" href="/public/images/logo/logo.png" />
 </head>
 
 <body>
+    <script src="/public/vendor/jquery/jquery.min.js"></script>
+
     <header class="bg-transparant absolute top-0 left-0 w-full flex z-10 lg:px-10 py-3">
         <div class="container">
             <div class="flex items-center justify-between relative">
@@ -130,8 +134,8 @@
                                 </li>
                             <?php } else { ?>
                                 <li class="flex mx-8 text-center group">
-                                    <a href="logout.php" class="w-full outline outline-1 outline-color1 shadow-lg py-3 rounded-lg group-hover:bg-color1 group-hover:text-white group-hover:outline-none lg:px-10">
-                                        Logout</a>
+                                    <a href="<?= base_url(); ?>/views/dashboard/dashboard.php" class="w-full outline outline-1 outline-color1 shadow-lg py-3 rounded-lg group-hover:bg-color1 group-hover:text-white group-hover:outline-none lg:px-10">
+                                        Dashboard</a>
                                 </li>
                             <?php } ?>
                         </ul>
@@ -141,106 +145,3 @@
         </div>
         </div>
     </header>
-    <section id="home" class="h-screen w-full -mt-10">
-        <div class="flex items-center justify-center h-screen flex-col gap-y-16">
-            <h1 class="sm:text-6xl text-3xl font-bold tracking-wider text-center">
-                See the Campus With a <br />
-                360° Concept
-            </h1>
-            <p class="sm:w-1/3 text-center font-light px-8">
-                This 360° system is applied to see various facilities or
-                rooms on the UPI Cibiru campus more deeply or look like
-                real.
-            </p>
-            <a href="" class="block px-11 font-semibold py-2 bg-color1 text-white rounded-lg text-2xl hover:scale-105 transition-all duration-300 ease-in-out">
-                See the campus
-            </a>
-        </div>
-    </section>
-    <section id="about" class="overflow-hidden sm:px-10 px-2">
-        <div class="flex flex-wrap md:flex-nowrap bg-color3 text-white items-center rounded-2xl relative overflow-hidden">
-            <div class="md:order-1 order-2 md:basis-1/3 flex flex-col gap-4 px-4 py-6">
-                <h3 class="text-center font-semibold">
-                    UPI Dimensional Drift
-                </h3>
-                <p class="text-justify">
-                    Take reference from the ultimate agent valorant (Yoru),
-                    the power to see between dimensions that cannot be
-                    affected or seen by outside entities. This is certainly
-                    in line with the vision of a virtual web tour that has
-                    the purpose and benefits to provide the user experience
-                    entering the dimensions of the virtual world upi campus
-                    cibiru with sensations such as being in an actual and
-                    real campus environment.
-                </p>
-            </div>
-            <!-- <div class="md:order-2 md:basis-2/3 flex relative w-full bg-[url('/public/images/about/about-upi.png')] bg-cover h-96"> -->
-            <div class="md:order-2 md:basis-2/3 flex relative w-full">
-                <img src="/public/images/about/about-upi.png" alt="foto upi" class="object-contain w-full h-full" />
-            </div>
-        </div>
-    </section>
-    <section id="features" class="overflow-hidden my-24">
-        <div class="flex items-center text-white justify-center gap-5 flex-wrap md:flex-nowrap">
-            <div class="bg-color1 flex px-5 py-8 rounded-2xl gap-x-4 md:basis-96 basis-11/12">
-                <img src="/public/images/about/icon-360.png" alt="features 1" />
-                <div class="flex flex-col gap-y-3 justify-center">
-                    <h1 class="font-semibold">360 <sup>o</sup> System</h1>
-                    <p class="font-light">
-                        See The Campus Using Conept 360 <sup>o</sup>
-                    </p>
-                </div>
-            </div>
-            <div class="bg-color1 flex px-5 py-8 rounded-2xl gap-x-4 md:basis-96 basis-11/12">
-                <img src="/public/images/about/icon-info.png" alt="features 2" />
-                <div class="flex flex-col gap-y-3 justify-center">
-                    <h1 class="font-semibold">Room Information</h1>
-                    <p class="font-light">Information Off The Room</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer id="footer" class="text-white tracking-wide">
-        <div class="flex bg-color1 p-10 flex-wrap sm:flex-nowrap gap-y-10">
-            <div class="sm:order-1 order-2 sm:basis-1/2 flex gap-y-2 flex-col">
-                <h1 class="font-bold text-2xl sm:text-4xl">
-                    UPI <br />
-                    Dimensional Drift
-                </h1>
-                <p class="font-light">
-                    Web virtual tour that has the purpose and benefits to
-                    provide users with the experience of entering the
-                    virtual world dimension of the UPI Cibiru campus with a
-                    sensation like being in an actual and real campus
-                    environment
-                </p>
-                <p class="mt-6">
-                    &copy; 2022 Sekolah Suzuran. All right reserved
-                </p>
-            </div>
-            <div class="sm:order-2 order-1 sm:basis-1/2 flex flex-col items-end">
-                <ul class="flex sm:justify-between flex-col sm:flex-row gap-y-4 sm:gap-x-10 py-3 font-semibold">
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Room Tour</li>
-                    <li>Gallery</li>
-                </ul>
-                <div class="flex text-2xl gap-x-2">
-                    <a href="" class="">
-                        <i class="bx bxl-twitter"></i>
-                    </a>
-                    <a href="">
-                        <i class="bx bxl-instagram"></i>
-                    </a>
-                    <a href="">
-                        <i class="bx bxl-facebook-square"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="/public/vendor/jquery/jquery.min.js"></script>
-    <script src="/public/js/script.js"></script>
-</body>
-
-</html>

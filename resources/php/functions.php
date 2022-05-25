@@ -1,28 +1,31 @@
 <?php
 include 'connections.php';
-function PDOConnection()
-{
-    $dsn = 'mysql:host=localhost;dbname=upi_dimensional_drift';
-    $username = 'root';
-    $password = '';
 
-    try {
-        $db = new PDO($dsn, $username, $password);
-        // echo "Connected successfulle";
-    } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
-        exit();
+function base_url($option = null)
+{
+    $uri = urldecode(
+        parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
+    );
+    $base =  sprintf(
+        "%s://%s:%s",
+        isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+        //SERVER PORT
+        $_SERVER['SERVER_NAME'],
+        $_SERVER['SERVER_PORT'],
+    );
+    if ($option == "full") {
+        return $base . $uri;
     }
+    return $base;
 }
 
+function dirFile()
+{
+    return __DIR__;
+}
 
 function registerAcc()
 {
-    PDOConnection();
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "upi_dimensional_drift";
 
     $conn = connectMySQL();
 

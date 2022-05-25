@@ -54,7 +54,7 @@ if (isset($_COOKIE['remember_token'])) {
                     echo "<div class='m-4 rounded-md border-2 border-red-300 bg-red-400/70 p-1 text-center font-medium text-white'>" . $flash_session . "</div>";
                 }
                 ?>
-                <form action="../resources/php/proses_login.php" id="formLogin" method="POST">
+                <form action="../resources/php/auth/prosesLogin.php" id="formLogin" method="POST">
                     <div class="mb-4">
                         <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
                             E-Mail

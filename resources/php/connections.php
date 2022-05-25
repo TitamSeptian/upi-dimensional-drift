@@ -2,7 +2,7 @@
 function connectMySQL()
 {
     $PORT = '3306'; // default 3306
-    $DATABASE_HOST = 'localhost:' . $PORT;
+    $DATABASE_HOST = 'localhost';
     $DATABASE_USER = 'root';
     $DATABASE_PASS = '';
     $DATABASE_NAME = 'upi_dimensional_drift';
