@@ -22,13 +22,13 @@
                 <div class="space-y-6">
                     <div class="space-y-2">
                         <span class="px-6 text-sm font-bold tracking-widest uppercase text-color3">
-                            Admin
+                            dashboard
                         </span>
                         <div class="grid gap-2">
                             <a href="#" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group">
                                 <i class="text-xl text-gray-400 transition-all duration-300 bx bxs-dashboard group-hover:text-color3"></i>
                                 <span class="font-semibold text-gray-400 transition-all duration-300 group-hover:text-color3">
-                                    Dashboard
+                                    Home
                                 </span>
                             </a>
                         </div>
@@ -56,6 +56,9 @@
                                 </span>
                             </a>
                         </div>
+                        <span class="px-6 text-sm font-bold tracking-widest uppercase text-color3">
+                            Admin
+                        </span>
                         <div class="grid gap-2">
                             <a href="<?= base_url(); ?>/views/user/index.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group">
                                 <i class="text-xl text-gray-400 transition-all duration-300 bx bx-user group-hover:text-color3"></i>

@@ -236,3 +236,83 @@
     display: block;
     transition: all 0.4s;
 }
+
+@layer components {
+    /* Button */
+    .btn {
+        @apply inline-block bg-color2 border border-color2 text-white py-2 px-8 font-semibold hover:bg-gray-600 ring ring-offset-2 ring-transparent focus:ring-color2 focus:bg-color2 transition-all duration-300 rounded-lg text-center cursor-pointer;
+    }
+
+    .btn-sm {
+        @apply text-sm;
+    }
+
+    .btn-outline {
+        @apply bg-white text-color2 hover:bg-gray-200 focus:bg-color2 focus:text-white;
+    }
+
+    .btn-icon {
+        @apply h-10 w-10 grid place-items-center text-sm p-0 rounded-xl;
+    }
+    /* End Button */
+
+    /* Input */
+    .select,
+    .input,
+    .textarea {
+        @apply rounded-lg focus:ring focus:ring-offset-2 focus:ring-color2 focus:border-color2 transition-all duration-300;
+    }
+
+    .checkbox {
+        @apply rounded focus:ring-color2 focus:border-color2 focus:text-color2 checked:text-color2 transition-all duration-300;
+    }
+
+    .form-control {
+        @apply grid gap-1;
+    }
+
+    .form-control .label {
+        @apply font-bold text-color1;
+    }
+
+    .form-control .invalid {
+        @apply text-red-600 text-sm italic font-medium;
+    }
+    /* End Input */
+
+    /* Table */
+    .thead {
+        @apply bg-gray-50;
+    }
+
+    .th {
+        @apply py-3 px-6 sm:text-sm text-xs font-medium tracking-wider text-left text-color1 uppercase whitespace-nowrap;
+    }
+
+    .td {
+        @apply py-4 px-6 sm:text-base text-sm text-gray-500 whitespace-nowrap;
+    }
+    .table-wrapper {
+    }
+
+    .table-wrapper::-webkit-scrollbar-track {
+        /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+        background-color: transparent;
+        /* background-color: red; */
+    }
+
+    .table-wrapper::-webkit-scrollbar {
+        width: 6px;
+        /* background-color: red; */
+    }
+
+    .table-wrapper::-webkit-scrollbar-thumb {
+        /* background-color: #0b1f41;
+        width: 6px;
+        border-radius: 20px; */
+        background-color: #d6dee1;
+        border-radius: 20px;
+        border: 6px solid transparent;
+        background-clip: content-box;
+    }
+}
