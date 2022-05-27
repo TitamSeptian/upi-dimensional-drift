@@ -16,9 +16,23 @@
 </head>
 
 <body>
+    <script src="/public/vendor/jquery/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(window).resize(function() {
+                var width = $(window).width();
+                if (width > 1023) {
+                    $("aside").remove("hidden");
+                }
+            })
+            $("#btn-menu").click(function() {
+                $("aside").toggleClass("hidden");
+            });
+        })
+    </script>
     <div class="relative min-h-screen overflow-x-hidden">
         <section class="relative flex max-h-screen min-h-screen overflow-hidden">
-            <aside class="lg:w-[400px] w-[300px] max-w-full px-8 overflow-x-hidden overflow-y-auto py-4 mt-14 lg:static absolute inset-y-0 bg-red z-10 bg-white-100">
+            <aside class="lg:w-[400px] w-[300px] max-w-full px-8 overflow-x-hidden overflow-y-auto py-4 mt-14 lg:static absolute inset-y-0 bg-red z-10 bg-white transition-all duration-300">
                 <div class="space-y-6">
                     <div class="space-y-2">
                         <span class="px-6 text-sm font-bold tracking-widest uppercase text-color3">
@@ -32,8 +46,8 @@
                                 </span>
                             </a>
                         </div>
-                        <div class="grid gap-2">
-                            <a href="#" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group">
+                        <div class="grid gap-2 ">
+                            <a href="<?= base_url() ?>/views/room/index.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group" id="rooms">
                                 <i class="text-xl text-gray-400 transition-all duration-300 bx bx-building group-hover:text-color3"></i>
                                 <span class="font-semibold text-gray-400 transition-all duration-300 group-hover:text-color3">
                                     Room Tour
@@ -74,7 +88,7 @@
                 <nav class="fixed inset-x-0 top-0 z-50 py-2 border-b border-gray-100 backdrop-blur-sm bg-white/30">
                     <div class="flex items-center justify-between px-8 bg-transparent lg:px-14">
                         <div class="flex items-center gap-4">
-                            <button class="lg:hidden btn btn-icon">
+                            <button class="lg:hidden btn btn-icon" id="btn-menu">
                                 <i class="bx bx-menu-alt-left"></i>
                             </button>
                             <a href="/">

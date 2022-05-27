@@ -11,7 +11,7 @@
  Target Server Version : 50733
  File Encoding         : 65001
 
- Date: 25/05/2022 21:18:49
+ Date: 27/05/2022 23:18:46
 */
 
 SET NAMES utf8mb4;
@@ -26,12 +26,13 @@ CREATE TABLE `facilities`  (
   `facility` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `icon` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of facilities
 -- ----------------------------
-INSERT INTO `facilities` VALUES (1, 'parking', '<i class=\'bx bxs-parking\'></i>');
+INSERT INTO `facilities` VALUES (1, 'parking', '<i class=\"bx bxs-parking\"></i>');
+INSERT INTO `facilities` VALUES (2, 'wifi', '<i class=\"bx bx-wifi\"></i>');
 
 -- ----------------------------
 -- Table structure for gallery
@@ -68,11 +69,15 @@ CREATE TABLE `room_details`  (
   INDEX `room_id`(`room_id`) USING BTREE,
   CONSTRAINT `room_details_ibfk_1` FOREIGN KEY (`facility_id`) REFERENCES `facilities` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `room_details_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of room_details
 -- ----------------------------
+INSERT INTO `room_details` VALUES (1, 1, 1);
+INSERT INTO `room_details` VALUES (2, 1, 2);
+INSERT INTO `room_details` VALUES (3, 1, 9);
+INSERT INTO `room_details` VALUES (4, 2, 9);
 
 -- ----------------------------
 -- Table structure for rooms
@@ -82,10 +87,10 @@ CREATE TABLE `rooms`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `slug` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `title` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `tumbnail` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `thumbnail` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `body` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `panorama_image` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `viewed` int(11) NULL DEFAULT NULL,
+  `descriptions` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `panorama_image` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -93,11 +98,14 @@ CREATE TABLE `rooms`  (
   UNIQUE INDEX `slug`(`slug`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `rooms_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rooms
 -- ----------------------------
+INSERT INTO `rooms` VALUES (1, 'gedung-biru', 'Gedung Biru', 'sample.png', '1', 'Spacious bedroom with private pool for you', '1', 1, '2022-05-27 15:21:42', '2022-05-27 15:21:44');
+INSERT INTO `rooms` VALUES (2, 'gedung-biru2', 'gedungbiru 2', 'sample.png', '1', 'Spacious bedroom with private pool for you', NULL, 1, '2022-05-27 15:33:10', '2022-05-27 15:33:13');
+INSERT INTO `rooms` VALUES (9, 'compact-title', 'compact title', '6290e265db39d-Group 1.png', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates consectetur pariatur eaque ut iste assumenda repellendus reiciendis, inventore id minus, dolorum ratione cupiditate numquam ea?', 'gedung biru adalah', '6290e265db39d-Group 1.png', 1, '2022-05-27 14:38:29', '2022-05-27 14:38:29');
 
 -- ----------------------------
 -- Table structure for user_token
@@ -111,12 +119,13 @@ CREATE TABLE `user_token`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `user_token_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user_token
 -- ----------------------------
 INSERT INTO `user_token` VALUES (1, '1e2847fb9f1a4748cd3c499fadb346ea6cd8a83940db90fe6fa20ec41e359d293b8f799117eeacbb161493d7dfb68fe6d1fcb2352e7295cef9bf11a88006ae9c', '2022-06-07 21:32:16', 1);
+INSERT INTO `user_token` VALUES (2, '580668ce1d3c1eadcc6210599d9aa5c176191fdd26c5a997ed1b73f1ae4deee832f327383a5797be298f9d66ab00ab69aead3eb35bf9520c8dbc28043fdf5187', '2022-06-26 14:40:36', 1);
 
 -- ----------------------------
 -- Table structure for users
@@ -137,5 +146,78 @@ CREATE TABLE `users`  (
 -- ----------------------------
 INSERT INTO `users` VALUES (1, 'titam@mail.com', '123qwe123', 'titam', 'septian', 'user');
 INSERT INTO `users` VALUES (2, 'andywarhol@mail.com', 'root123', 'Andy', 'warhool', 'user');
+
+-- ----------------------------
+-- Table structure for viewed_room
+-- ----------------------------
+DROP TABLE IF EXISTS `viewed_room`;
+CREATE TABLE `viewed_room`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `room_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `room_id`(`room_id`) USING BTREE,
+  CONSTRAINT `viewed_room_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of viewed_room
+-- ----------------------------
+INSERT INTO `viewed_room` VALUES (1, '2022-05-27 15:22:00', 1);
+INSERT INTO `viewed_room` VALUES (2, '2022-05-27 15:23:01', 1);
+INSERT INTO `viewed_room` VALUES (8, '2022-05-27 15:27:43', 1);
+
+-- ----------------------------
+-- Procedure structure for getFacilitiesByRoomId
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `getFacilitiesByRoomId`;
+delimiter ;;
+CREATE PROCEDURE `getFacilitiesByRoomId`(IN `room_id` int)
+BEGIN
+	SELECT facilities.* FROM room_details JOIN facilities ON facilities.id = room_details.facility_id WHERE room_details.room_id = room_id;
+
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for getRoomBySlug
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `getRoomBySlug`;
+delimiter ;;
+CREATE PROCEDURE `getRoomBySlug`(IN `slug` varchar(50))
+BEGIN
+	SELECT
+	rooms.*,
+	users.first_name AS author,
+	( SELECT count( room_id ) FROM viewed_room WHERE room_id = rooms.id ) AS viewed ,
+	( SELECT count( room_id ) FROM room_details WHERE room_id = rooms.id ) AS facilities
+FROM
+	rooms
+	JOIN users ON rooms.user_id = users.id
+	WHERE rooms.slug = slug;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for getRooms
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `getRooms`;
+delimiter ;;
+CREATE PROCEDURE `getRooms`()
+BEGIN
+SELECT
+	rooms.*,
+	users.first_name AS author,
+	( SELECT count( room_id ) FROM viewed_room WHERE room_id = rooms.id ) AS viewed ,
+	( SELECT count( room_id ) FROM room_details WHERE room_id = rooms.id ) AS facilities
+FROM
+	rooms
+	JOIN users ON rooms.user_id = users.id;
+
+END
+;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;
