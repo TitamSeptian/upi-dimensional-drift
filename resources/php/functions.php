@@ -62,3 +62,77 @@ function registerAcc()
         }
     }
 }
+
+function escape_mysql_identifier($field)
+{
+    return "`" . str_replace("`", "``", $field) . "`";
+}
+
+function insert($table, $data, $is_esacpe = false)
+{
+    $pdo = connectMySQL();
+    $keys = array_keys($data);
+    $keys = array_map('escape_mysql_identifier', $keys);
+    $fields = implode(",", $keys);
+    $table = escape_mysql_identifier($table);
+    $placeholders = str_repeat('?,', count($keys) - 1) . '?';
+    $sql = "INSERT INTO $table ($fields) VALUES ($placeholders)";
+    $pdo->beginTransaction();
+    $pdo->prepare($sql)->execute(array_values($data));
+    $pdo->commit();
+    $lastId = $pdo->lastInsertId();
+    return $lastId;
+}
+
+function query($sql, $data = [])
+{
+    $pdo = connectMySQL();
+    try {
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($data);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $exception) {
+        print_r($exception);
+        exit('Failed to connect to database!');
+    }
+}
+
+function update($table, $dat, $id, $val)
+{
+    $pdo = connectMySQL();
+    if ($dat !== null) {
+        $data = array_values($dat);
+    }
+    array_push($data, $val);
+    $cols = array_keys($dat);
+    $mark = array();
+    foreach ($cols as $col) {
+        $mark[] = $col . "=?";
+    }
+    $im  = implode(', ', $mark);
+    $ins = $pdo->prepare("UPDATE $table SET $im where $id=?");
+    try {
+        $ins->execute($data);
+        return true;
+    } catch (PDOException $exception) {
+        var_dump($exception->getMessage());
+        exit("error");
+    }
+}
+
+function delete($table, $where, $id)
+{
+    $pdo = connectMySQL();
+    $data = array(
+        $id
+    );
+    $sel  = $pdo->prepare("DELETE FROM $table WHERE $where=?");
+    try {
+        $sel->execute($data);
+        return true;
+    } catch (PDOException $exception) {
+        var_dump($exception->getMessage());
+        return false;
+    }
+}

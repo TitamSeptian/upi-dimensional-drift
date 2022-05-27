@@ -256,4 +256,94 @@
         </div>
     </div>
 </section>
+<!-- <div class="gap-4 space-y-4 sm:columns-2 md:columns-3">
+    <div class="relative overflow-hidden rounded-tr-2xl rounded-bl-2xl">
+        <div class="absolute top-4 left-4 z-10 flex space-x-4">
+            <button class="btn btn-icon" wire:click="edit('ed0f4c9bf7d29c9ffa687285771319ed49bf5d86')">
+                <i class="bx bx-edit"></i>
+            </button>
+            <button class="btn btn-icon" wire:click="delete('ed0f4c9bf7d29c9ffa687285771319ed49bf5d86')">
+                <i class="bx bx-trash"></i>
+            </button>
+        </div>
+        <img class="relative z-0 w-full transition-all duration-300 hover:scale-110" src="https://hollux.herokuapp.com/storage/img/galeries/c5vrwpfJpqx8Yr0r2wkUoRRDbp5nCYgCB1mtTAvE.png" alt="gurun" title="gurun" />
+    </div>
+    <div class="relative overflow-hidden rounded-tr-2xl rounded-bl-2xl">
+        <div class="absolute top-4 left-4 z-10 flex space-x-4">
+            <button class="btn btn-icon" wire:click="edit('a4a52b7149ee709a1176347aa37026faaee40e06')">
+                <i class="bx bx-edit"></i>
+            </button>
+            <button class="btn btn-icon" wire:click="delete('a4a52b7149ee709a1176347aa37026faaee40e06')">
+                <i class="bx bx-trash"></i>
+            </button>
+        </div>
+        <img class="relative z-0 w-full transition-all duration-300 hover:scale-110" src="https://hollux.herokuapp.com/storage/img/galeries/iFgUTIVmJEUuC6YpULulArDOVtuaQd5YlAWk4xlG.jpg" alt="ibu ibu" title="ibu ibu" />
+    </div>
+    <div class="relative overflow-hidden rounded-tr-2xl rounded-bl-2xl">
+        <div class="absolute top-4 left-4 z-10 flex space-x-4">
+            <button class="btn btn-icon" wire:click="edit('f8935bbe1c825b14f2644c93c2b8d50dfa1b5a1b')">
+                <i class="bx bx-edit"></i>
+            </button>
+            <button class="btn btn-icon" wire:click="delete('f8935bbe1c825b14f2644c93c2b8d50dfa1b5a1b')">
+                <i class="bx bx-trash"></i>
+            </button>
+        </div>
+        <img class="relative z-0 w-full transition-all duration-300 hover:scale-110" src="https://hollux.herokuapp.com/storage/img/galeries/HDDMWBFYKii7TatAnaHtjA6oDcvScMDrG3NrlNgc.png" alt="ayam itu ayam" title="ayam itu ayam" />
+    </div>
+    <div class="relative overflow-hidden rounded-tr-2xl rounded-bl-2xl">
+        <div class="absolute top-4 left-4 z-10 flex space-x-4">
+            <button class="btn btn-icon" wire:click="edit('9876ac968645589337f7607960558400bab5442b')">
+                <i class="bx bx-edit"></i>
+            </button>
+            <button class="btn btn-icon" wire:click="delete('9876ac968645589337f7607960558400bab5442b')">
+                <i class="bx bx-trash"></i>
+            </button>
+        </div>
+        <img class="relative z-0 w-full transition-all duration-300 hover:scale-110" src="https://hollux.herokuapp.com/storage/img/galeries/dTcmOEFQB7Tx5nEV3Kzac0aqI2DBCoYYq6uIW9eG.png" alt="dokter" title="dokter" />
+    </div>
+    <div class="relative overflow-hidden rounded-tr-2xl rounded-bl-2xl">
+        <div class="absolute top-4 left-4 z-10 flex space-x-4">
+            <button class="btn btn-icon" wire:click="edit('ed0f4c9bf7d29c9ffa687285771319ed49bf5d86')">
+                <i class="bx bx-edit"></i>
+            </button>
+            <button class="btn btn-icon" wire:click="delete('ed0f4c9bf7d29c9ffa687285771319ed49bf5d86')">
+                <i class="bx bx-trash"></i>
+            </button>
+        </div>
+        <img class="relative z-0 w-full transition-all duration-300 hover:scale-110" src="https://hollux.herokuapp.com/storage/img/galeries/c5vrwpfJpqx8Yr0r2wkUoRRDbp5nCYgCB1mtTAvE.png" alt="gurun" title="gurun" />
+    </div>
+    <div class="relative overflow-hidden rounded-tr-2xl rounded-bl-2xl">
+        <div class="absolute top-4 left-4 z-10 flex space-x-4">
+            <button class="btn btn-icon" wire:click="edit('ed0f4c9bf7d29c9ffa687285771319ed49bf5d86')">
+                <i class="bx bx-edit"></i>
+            </button>
+            <button class="btn btn-icon" wire:click="delete('ed0f4c9bf7d29c9ffa687285771319ed49bf5d86')">
+                <i class="bx bx-trash"></i>
+            </button>
+        </div>
+        <img class="relative z-0 w-full transition-all duration-300 hover:scale-110" src="https://hollux.herokuapp.com/storage/img/galeries/c5vrwpfJpqx8Yr0r2wkUoRRDbp5nCYgCB1mtTAvE.png" alt="gurun" title="gurun" />
+    </div>
+    <div class="relative overflow-hidden rounded-tr-2xl rounded-bl-2xl">
+        <div class="absolute top-4 left-4 z-10 flex space-x-4">
+            <button class="btn btn-icon" wire:click="edit('ed0f4c9bf7d29c9ffa687285771319ed49bf5d86')">
+                <i class="bx bx-edit"></i>
+            </button>
+            <button class="btn btn-icon" wire:click="delete('ed0f4c9bf7d29c9ffa687285771319ed49bf5d86')">
+                <i class="bx bx-trash"></i>
+            </button>
+        </div>
+        <img class="relative z-0 w-full transition-all duration-300 hover:scale-110" src="https://hollux.herokuapp.com/storage/img/galeries/c5vrwpfJpqx8Yr0r2wkUoRRDbp5nCYgCB1mtTAvE.png" alt="gurun" title="gurun" />
+    </div>
+    <div class="relative overflow-hidden rounded-tr-2xl rounded-bl-2xl">
+        <div class="absolute top-4 left-4 z-10 flex space-x-4">
+            <button class="btn btn-icon" wire:click="edit('ed0f4c9bf7d29c9ffa687285771319ed49bf5d86')">
+                <i class="bx bx-edit"></i>
+            </button>
+            <button class="btn btn-icon" wire:click="delete('ed0f4c9bf7d29c9ffa687285771319ed49bf5d86')">
+                <i class="bx bx-trash"></i>
+            </button>
+        </div>
+        <img class="relative z-0 w-full transition-all duration-300 hover:scale-110" src="https://hollux.herokuapp.com/storage/img/galeries/c5vrwpfJpqx8Yr0r2wkUoRRDbp5nCYgCB1mtTAvE.png" alt="gurun" title="gurun" />
+    </div>
+</div> -->
 <?php include_once 'footerLanding.php' ?>
