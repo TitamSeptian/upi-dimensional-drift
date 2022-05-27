@@ -6,7 +6,7 @@
     <div class="form-control">
         <label class="label" for="name">Name</label>
         <input class="input" type="text" name="name" id="name" required>
-        <span class="text-red-500 text-xs">* nama harus di isi</span>
+        <span class="invalid">* nama harus di isi</span>
     </div>
     <button class="btn btn-sm" type="submit">Submit</button>
 </form>

@@ -8,7 +8,9 @@
     $("#rooms span").addClass("text-color3")
 </script>
 <h1 class="text-gray-800 text-2xl font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full mb-4">
-    Room</h1>
+    Room
+</h1>
+<a href="<?= base_url(); ?>/views/room/create.php" class="btn btn-sm mb-4"><i class='bx bx-plus'></i> New</a>
 <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
     <?php
     $rooms = query("call getRooms()");
@@ -16,7 +18,7 @@
     ?>
         <div class="space-y-4">
             <div class="aspect-[8/6]  w-full rounded-2xl overflow-hidden">
-                <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="<?= base_url() ?>/public/360thumbnail/<?= $room['tumbnail'] ?>" alt="<?= $room['title'] ?>">
+                <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300" src="<?= base_url() ?>/public/360thumbnail/<?= $room['thumbnail'] ?>" alt="<?= $room['title'] ?>">
             </div>
             <div class="bg-gray-200 text-sm text-gray-600 flex gap-x-4 gap-y-2 justify-center rounded-lg py-2 px-4">
                 <div class="flex items-center gap-1 text-gray-800">
@@ -49,7 +51,7 @@
 
             <div class="flex gap-2">
                 <a class="btn btn-sm" href="">Edit</a>
-                <button class="btn btn-sm btn-outline">Delete</button>
+                <a class="btn btn-sm btn-outline" href="<?= base_url(); ?>/resources/php/room/delete.php?id=<?= $room['id'] ?>" onClick="javascript: return confirm('Anda Yakin akan menghapus ini ?');">Delete</a>
             </div>
         </div>
     <?php } ?>

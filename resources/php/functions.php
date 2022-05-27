@@ -77,11 +77,16 @@ function insert($table, $data, $is_esacpe = false)
     $table = escape_mysql_identifier($table);
     $placeholders = str_repeat('?,', count($keys) - 1) . '?';
     $sql = "INSERT INTO $table ($fields) VALUES ($placeholders)";
-    $pdo->beginTransaction();
-    $pdo->prepare($sql)->execute(array_values($data));
-    $pdo->commit();
-    $lastId = $pdo->lastInsertId();
-    return $lastId;
+    try {
+        $pdo->beginTransaction();
+        $pdo->prepare($sql)->execute(array_values($data));
+        $pdo->commit();
+        $lastId = $pdo->lastInsertId();
+        return true;
+    } catch (PDOException $exception) {
+        var_dump($exception->getMessage());
+        exit("error");
+    }
 }
 
 function query($sql, $data = [])
@@ -135,4 +140,48 @@ function delete($table, $where, $id)
         var_dump($exception->getMessage());
         return false;
     }
+}
+
+function getLastInsertId($table)
+{
+    $pdo = connectMySQL();
+    $sql = "SELECT * FROM $table ORDER BY id DESC LIMIT 1";
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['id'];
+    } catch (PDOException $exception) {
+        var_dump($exception->getMessage());
+        exit("error");
+    }
+}
+
+function slugify($text)
+{
+    // replace non letter or digits by -
+    $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+    // transliterate
+    $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+    // remove unwanted characters
+    $text = preg_replace('~[^-\w]+~', '', $text);
+
+    // trim
+    $text = trim($text, '-');
+
+    // remove duplicate -
+    $text = preg_replace('~-+~', '-', $text);
+
+    // lowercase
+    $text = strtolower($text);
+
+    return $text;
+}
+
+function redirectTo($message, $url)
+{
+    $baseUrl = base_url();
+    echo "<script>alert('{$message}'); window.location='{$baseUrl}{$url}'</script>";
 }
