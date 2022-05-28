@@ -959,6 +959,18 @@ html {
   background-clip: content-box;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .fixed {
   position: fixed;
 }
@@ -1044,6 +1056,10 @@ html {
   z-index: 99999;
 }
 
+.z-\[2\] {
+  z-index: 2;
+}
+
 .order-2 {
   order: 2;
 }
@@ -1068,11 +1084,6 @@ html {
 .my-24 {
   margin-top: 6rem;
   margin-bottom: 6rem;
-}
-
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 
 .mt-6 {
@@ -1103,12 +1114,12 @@ html {
   margin-top: 1rem;
 }
 
-.mt-14 {
-  margin-top: 3.5rem;
-}
-
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-14 {
+  margin-top: 3.5rem;
 }
 
 .block {
@@ -1143,6 +1154,10 @@ html {
   aspect-ratio: 8 / 6;
 }
 
+.aspect-\[16\/9\] {
+  aspect-ratio: 16 / 9;
+}
+
 .h-full {
   height: 100%;
 }
@@ -1175,12 +1190,28 @@ html {
   height: 24rem;
 }
 
+.h-auto {
+  height: auto;
+}
+
+.h-fit {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .max-h-screen {
   max-height: 100vh;
 }
 
 .min-h-screen {
   min-height: 100vh;
+}
+
+.min-h-max {
+  min-height: -webkit-max-content;
+  min-height: -moz-max-content;
+  min-height: max-content;
 }
 
 .w-full {
@@ -1217,6 +1248,10 @@ html {
   width: 300px;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .min-w-full {
   min-width: 100%;
 }
@@ -1247,6 +1282,10 @@ html {
   cursor: pointer;
 }
 
+.resize-none {
+  resize: none;
+}
+
 .resize {
   resize: both;
 }
@@ -1275,6 +1314,10 @@ html {
 
 .place-items-start {
   place-items: start;
+}
+
+.place-items-center {
+  place-items: center;
 }
 
 .items-end {
@@ -1315,6 +1358,10 @@ html {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
 }
 
 .gap-y-3 {
@@ -1510,17 +1557,17 @@ html {
   background-color: rgb(0 163 225 / var(--tw-bg-opacity));
 }
 
+.bg-color2 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 71 187 / var(--tw-bg-opacity));
+}
+
 .bg-white\/30 {
   background-color: rgb(255 255 255 / 0.3);
 }
 
 .bg-transparent {
   background-color: transparent;
-}
-
-.bg-color2 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 71 187 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\'\/public\/images\/gallery\/bghome\.jpeg\'\)\] {

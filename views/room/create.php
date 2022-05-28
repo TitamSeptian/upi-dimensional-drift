@@ -1,6 +1,7 @@
 <!-- content here -->
 <?php include_once '../template/header.php'; ?>
 <script>
+    $("head").prepend(`<link rel="stylesheet" href="/public/vendor/pannellum/pannellum.css" />`)
     $("#rooms").addClass("bg-gray-100")
     $("#rooms i").removeClass("text-gray-400")
     $("#rooms i").addClass("text-color3")
@@ -35,16 +36,49 @@
             </label>
         <?php endforeach; ?>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 mt-4">
-        <div class="form-control">
-            <label class="label" for="thumbnail">Thumbnail</label>
-            <input class="input" type="file" name="thumbnail" id="thumbnail" required accept="image/x-png,image/jpg,image/jpeg,image/webp">
+    <div class="grid grid-cols-1 sm:grid-cols-2 mt-4 place-items-start gap-4">
+        <div class="form-control relative">
+            <label class="btn" for="thumbnail">Upload Thumbnail</label>
+            <input accept="image/png, image/jpeg" class="sr-only" type="file" name="thumbnail" id="thumbnail" onchange="showPreview(event);">
         </div>
-        <div class="form-control">
-            <label class="label" for="panorama">Panorama Image</label>
-            <input class="input" type="file" name="panorama" id="panorama" required accept="image/x-png,image/jpg,image/jpeg,image/webp">
+        <div class="form-control relative">
+            <label class="btn" for="panorama">Upload Panorama</label>
+            <input accept="image/png, image/jpeg" class="sr-only" type="file" name="panorama" id="panorama" onchange="showPanorama(event);">
+        </div>
+        <div class="aspect-[16/9] rounded-xl overflow-hidden w-full bg-gray-100">
+            <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300 hidden" src="" id="preview-thumbnail">
+        </div>
+        <div class="aspect-[16/9] rounded-xl overflow-hidden w-full bg-gray-100">
+            <section class="relative w-full aspect-[16/9] rounded-xl overflow-hidden">
+                <div id="panorama-360-view" class="absolute h-full w-full top-0 left-0 z-[2]"></div>
+            </section>
         </div>
     </div>
     <button class="btn btn-sm mt-4" type="submit" name="submit">Submit</button>
 </form>
+<script src="<?= base_url(); ?>/public/vendor/pannellum/pannellum.js"></script>
+<script>
+    function showPreview(event) {
+        if (event.target.files.length > 0) {
+            let src = URL.createObjectURL(event.target.files[0]);
+            let preview = document.getElementById("preview-thumbnail");
+            preview.src = src;
+            preview.classList.remove("hidden");
+        }
+    }
+
+    function showPanorama(event) {
+        if (event.target.files.length > 0) {
+            let src = URL.createObjectURL(event.target.files[0]);
+            const p360 = pannellum.viewer("panorama-360-view", {
+                type: "equirectangular",
+                panorama: src,
+                autoLoad: true,
+                compass: false,
+                mouseZoom: false,
+            });
+
+        }
+    }
+</script>
 <?php include_once '../template/footer.php'; ?>
