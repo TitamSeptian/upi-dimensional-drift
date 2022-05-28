@@ -93,7 +93,6 @@ function query($sql, $data = [])
 {
     $pdo = connectMySQL();
     try {
-
         $stmt = $pdo->prepare($sql);
         $stmt->execute($data);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
