@@ -11,7 +11,7 @@
  Target Server Version : 50733
  File Encoding         : 65001
 
- Date: 27/05/2022 23:18:46
+ Date: 28/05/2022 17:28:42
 */
 
 SET NAMES utf8mb4;
@@ -26,13 +26,14 @@ CREATE TABLE `facilities`  (
   `facility` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `icon` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of facilities
 -- ----------------------------
 INSERT INTO `facilities` VALUES (1, 'parking', '<i class=\"bx bxs-parking\"></i>');
 INSERT INTO `facilities` VALUES (2, 'wifi', '<i class=\"bx bx-wifi\"></i>');
+INSERT INTO `facilities` VALUES (3, 'Food', '<i class=\'bx bx-bowl-hot\'></i>');
 
 -- ----------------------------
 -- Table structure for gallery
@@ -69,15 +70,11 @@ CREATE TABLE `room_details`  (
   INDEX `room_id`(`room_id`) USING BTREE,
   CONSTRAINT `room_details_ibfk_1` FOREIGN KEY (`facility_id`) REFERENCES `facilities` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `room_details_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of room_details
 -- ----------------------------
-INSERT INTO `room_details` VALUES (1, 1, 1);
-INSERT INTO `room_details` VALUES (2, 1, 2);
-INSERT INTO `room_details` VALUES (3, 1, 9);
-INSERT INTO `room_details` VALUES (4, 2, 9);
 
 -- ----------------------------
 -- Table structure for rooms
@@ -98,14 +95,11 @@ CREATE TABLE `rooms`  (
   UNIQUE INDEX `slug`(`slug`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `rooms_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rooms
 -- ----------------------------
-INSERT INTO `rooms` VALUES (1, 'gedung-biru', 'Gedung Biru', 'sample.png', '1', 'Spacious bedroom with private pool for you', '1', 1, '2022-05-27 15:21:42', '2022-05-27 15:21:44');
-INSERT INTO `rooms` VALUES (2, 'gedung-biru2', 'gedungbiru 2', 'sample.png', '1', 'Spacious bedroom with private pool for you', NULL, 1, '2022-05-27 15:33:10', '2022-05-27 15:33:13');
-INSERT INTO `rooms` VALUES (9, 'compact-title', 'compact title', '6290e265db39d-Group 1.png', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates consectetur pariatur eaque ut iste assumenda repellendus reiciendis, inventore id minus, dolorum ratione cupiditate numquam ea?', 'gedung biru adalah', '6290e265db39d-Group 1.png', 1, '2022-05-27 14:38:29', '2022-05-27 14:38:29');
 
 -- ----------------------------
 -- Table structure for user_token
@@ -163,9 +157,6 @@ CREATE TABLE `viewed_room`  (
 -- ----------------------------
 -- Records of viewed_room
 -- ----------------------------
-INSERT INTO `viewed_room` VALUES (1, '2022-05-27 15:22:00', 1);
-INSERT INTO `viewed_room` VALUES (2, '2022-05-27 15:23:01', 1);
-INSERT INTO `viewed_room` VALUES (8, '2022-05-27 15:27:43', 1);
 
 -- ----------------------------
 -- Procedure structure for getFacilitiesByRoomId
@@ -174,7 +165,7 @@ DROP PROCEDURE IF EXISTS `getFacilitiesByRoomId`;
 delimiter ;;
 CREATE PROCEDURE `getFacilitiesByRoomId`(IN `room_id` int)
 BEGIN
-	SELECT facilities.* FROM room_details JOIN facilities ON facilities.id = room_details.facility_id WHERE room_details.room_id = room_id;
+	SELECT facilities.*, room_details.* FROM room_details JOIN facilities ON facilities.id = room_details.facility_id WHERE room_details.room_id = room_id;
 
 END
 ;;

@@ -1,6 +1,12 @@
 <?php
 include 'connections.php';
 
+/**
+ * Get base url
+ *
+ * @param  String $option
+ * @return string|null (the url)
+ */
 function base_url($option = null)
 {
     $uri = urldecode(
@@ -19,6 +25,11 @@ function base_url($option = null)
     return $base;
 }
 
+/**
+ * get dir project
+ *
+ * @return string|null
+ */
 function dirFile()
 {
     return __DIR__;
@@ -63,11 +74,23 @@ function registerAcc()
     }
 }
 
+/**
+ * get dir project
+ * @param string $field
+ * @return string|null
+ */
 function escape_mysql_identifier($field)
 {
     return "`" . str_replace("`", "``", $field) . "`";
 }
 
+/**
+ * insert sql function
+ * @param string $table
+ * @param array $data
+ * @param boolean $is_esacpe
+ * @return boolean
+ */
 function insert($table, $data, $is_esacpe = false)
 {
     $pdo = connectMySQL();
@@ -89,6 +112,12 @@ function insert($table, $data, $is_esacpe = false)
     }
 }
 
+/**
+ * execute query sql function
+ * @param string $table
+ * @param array $data
+ * @return arrayAssoc 
+ */
 function query($sql, $data = [])
 {
     $pdo = connectMySQL();
@@ -103,7 +132,17 @@ function query($sql, $data = [])
     }
 }
 
-function update($table, $dat, $id, $val)
+/**
+ * update sql function
+ * 
+ * @param string $table
+ * @param array $data
+ * @param string $where
+ * @param string $val
+ * @return boolean
+ * 
+ */
+function update($table, $dat, $where, $val)
 {
     $pdo = connectMySQL();
     if ($dat !== null) {
@@ -116,7 +155,7 @@ function update($table, $dat, $id, $val)
         $mark[] = $col . "=?";
     }
     $im  = implode(', ', $mark);
-    $ins = $pdo->prepare("UPDATE $table SET $im where $id=?");
+    $ins = $pdo->prepare("UPDATE $table SET $im where $where=?");
     try {
         $ins->execute($data);
         return true;
@@ -126,6 +165,13 @@ function update($table, $dat, $id, $val)
     }
 }
 
+/**
+ * delete sql function
+ * 
+ * @param string $table
+ * @param string $where
+ * @param string $id
+ */
 function delete($table, $where, $id)
 {
     $pdo = connectMySQL();
@@ -142,6 +188,11 @@ function delete($table, $where, $id)
     }
 }
 
+/**
+ * get last id from table
+ * @param string $table
+ * @return arrayAssoc
+ */
 function getLastInsertId($table)
 {
     $pdo = connectMySQL();
@@ -157,6 +208,12 @@ function getLastInsertId($table)
     }
 }
 
+
+/**
+ * get slug string
+ * @param string $text
+ * @return string
+ */
 function slugify($text)
 {
     // replace non letter or digits by -
@@ -180,6 +237,12 @@ function slugify($text)
     return $text;
 }
 
+/**
+ * redirectTo
+ * @param string $message
+ * @param string $url
+ * @return void
+ */
 function redirectTo($message, $url)
 {
     $baseUrl = base_url();
