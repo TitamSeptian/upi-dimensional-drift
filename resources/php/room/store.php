@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
         'panorama_image' => $newFileNamePanorama,
         'created_at' => date('Y-m-d H:i:s'),
         'updated_at' => date('Y-m-d H:i:s'),
-        'user_id' => 1
+        'user_id' => $_SESSION['user_id']
     ]);
     move_uploaded_file($_FILES['thumbnail']['tmp_name'], $thumbnailLocaltion);
     move_uploaded_file($_FILES['panorama']['tmp_name'], $panoramaLocaltion);
