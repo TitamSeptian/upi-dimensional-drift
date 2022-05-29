@@ -24,7 +24,10 @@ $room = query("call getRoomBySlug('$slug')")[0];
     <span class="bg-color2 p-2 text-white rounded"><i class="bx bx-show"></i> <?= $room['viewed'] ?></span>
 </div>
 <i class="italic text-xs text-gray-400"><?= $room['descriptions'] ?></i>
-<p class="text-gray-800 mt-2"><?= $room['body'] ?></p>
+<div class="form-control">
+    <label for="text" class="label">Body</label>
+    <textarea name="text" id="text" rows="6" class="resize-none textarea"><?= $room['body'] ?></textarea>
+</div>
 <section class="panorama rounded-xl overflow-hidden mt-4">
     <div id="panorama-360-view" class="picture"></div>
 </section>

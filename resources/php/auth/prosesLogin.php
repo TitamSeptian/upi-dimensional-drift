@@ -14,6 +14,7 @@ $count = $row->rowCount();
 $hasil = $row->fetch();
 
 if ($count > 0) {
+    $_SESSION['user_id'] = $hasil['id'];
     $_SESSION['Session_email'] = $hasil['email'];
     $_SESSION['Session_firstName'] = $hasil['first_name'];
     $_SESSION['Session_lastName'] = $hasil['last_name'];

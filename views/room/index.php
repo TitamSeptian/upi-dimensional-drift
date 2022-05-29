@@ -50,8 +50,8 @@
             <?php endif; ?>
 
             <div class="flex gap-2">
-                <a class="btn btn-sm" href="">Edit</a>
-                <a class="btn btn-sm btn-outline" href="<?= base_url(); ?>/resources/php/room/delete.php?id=<?= $room['id'] ?>" onClick="javascript: return confirm('Anda Yakin akan menghapus ini ?');">Delete</a>
+                <a class="btn btn-sm" href="<?= base_url() ?>/views/room/edit.php?id=<?= $room['id'] ?>">Edit</a>
+                <a class="btn btn-sm btn-outline" href="<?= base_url(); ?>/resources/php/room/delete.php?id=<?= $room['id'] ?>" onClick="javascript: return confirm('This Room Will be deleted, are you sure ?');">Delete</a>
             </div>
         </div>
     <?php } ?>
