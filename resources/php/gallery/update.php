@@ -1,27 +1,39 @@
 <?php
-    
+    session_start();
     include_once '../functions.php';
 
-    // var_dump($_POST);
-    $id = $_POST['id'] ;
-    $image = $_POST['image'];
-    $path = $_POST['path'];
-    $room_id = $_POST['room_id'];
-    $user_id = $_POST['user_id'];
-    $title = $_POST['title'];
-    $body = $_POST['text_body'];
+    if(isset($_POST['update'])){
+        $id = $_POST['id'] ?? '';
+        $gallery = query("SELECT * FROM gallery WHERE id = $id")[0];
 
-    // echo $id;
-    // echo $image;
-    update('gallery',[
-        'image' => $image,
-        'path' => $path,
-        'room_id' => $room_id,
-        'user_id' => $user_id,
-        'title' => $title,
-        'body' => $body,
-    ], 'id', $id);
+        unlink('../../../public/images/gallery/' . $gallery['image']);
+                // echo $_SESSION['user_id'];
+        $fileNameImg = $_FILES['image']['name'];
+        $tempFileName = $_FILES['image']['tmp_name'];
+        $newFileName = uniqid() . mt_rand(100000, 999999) . $fileNameImg;
+        $id = $_POST['id'] ;
+        $title = $_POST['title'];
+        $body = $_POST['text_body'];
+        $uploaderId = $_SESSION['user_id'];
 
-    redirectTo('Image Data Updated', '/views/gallery/index.php');
+        
+        $dirUpload = '../../../public/images/gallery/'.$newFileName;
+        $uploaded = move_uploaded_file($tempFileName, $dirUpload );
+        $roomId = getLastInsertId('rooms');
+        
+    
+        update('gallery',[
+            'image' => $newFileName,
+            'path' => $dirUpload,
+            'room_id' => $roomId,
+            'user_id' => $uploaderId,
+            'title' => $title,
+            'body' => $body,
+        ], 'id', $id);
+    
+        redirectTo('Image Data Updated', '/views/gallery/index.php');
+    }else{
+        redirectTo('Image Data Not Updated', '/views/gallery/index.php');
+    }
 
 ?>

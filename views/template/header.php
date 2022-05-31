@@ -1,4 +1,7 @@
 <?php include '../../resources/php/functions.php' ?>
+<?php
+ session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
