@@ -32,7 +32,7 @@ if ($count > 0) {
         $stmt->execute();
         setcookie('remember_token', $token, $expired_seconds, '/');
     }
-    header("location:../../views/dashboard/dashboard.php");
+    header("location:../../../views/dashboard/dashboard.php");
 } else {
     $_SESSION['Session_flash'] = "Login field, please check your email and password";
 
