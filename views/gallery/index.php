@@ -71,12 +71,12 @@
         <div class="form-control">
             <label class="label" for="name">Body</label>
             <!-- <input class="input" type="text" name="name" id="name" height="100px" required> -->
-            <textarea id="" cols="0" rows="0" class="rounded input" name="text_body"></textarea>
+            <textarea id="" cols="0" rows="0" class="rounded input" name="text_body" required></textarea>
             <!-- <span class="text-red-500 text-xs">* nama harus di isi</span> -->
         </div>
         <div class="form-control">
             <label class="label" for="files">Image</label>
-            <input type="file" id="files" accept="image/png, image/jpeg"  class="input border p-2 border-slate-500 " name="image" >
+            <input type="file" id="files" accept="image/png, image/jpeg"  class="input border p-2 border-slate-500 " name="image" required>
         </div>
         <button class="btn btn-sm mt-5" name="submit" type="submit">Submit</button>
     </div>
@@ -123,7 +123,7 @@
                         <td class="td capitalize max-w-sm truncate ">
                             <?= $body?>
                         </td>
-                        <td class="td flex space-x-2">
+                        <td class="td my-auto space-x-2">
                             <a href="<?=base_url()?>/views/gallery/update.php?id=<?=$id?>" name="editImg" class="btn btn-sm hover:bg-blue-900 ">Edit</a>
                             <a name="deleteImg" href="<?=base_url()?>/resources/php/gallery/delete.php?id=<?=$id?>" class="btn btn-sm btn-outline hover:bg-red-500 hover:text-white text-red-500 border-red-500" onClick="return confirm('Are You Sure Want to Delete this Image?')">Delete</a>
                         </td>
