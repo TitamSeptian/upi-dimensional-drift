@@ -29,6 +29,9 @@ if ($_SESSION['Session_status'] !== 'Active') {
     <script src="<?= base_url(); ?>/public/vendor/jquery-validate/jquery.validate.min.js"></script>
     <script src="<?= base_url(); ?>/public/vendor/jquery-validate/additional-methods.js"></script>
     <script>
+        $.validator.addMethod('filesize', function(value, element, param) {
+            return this.optional(element) || (element.files[0].size <= param)
+        }, 'File size must be less than {0}');
         $(document).ready(function() {
             $(window).resize(function() {
                 var width = $(window).width();

@@ -12,7 +12,8 @@
     Room
 </h1>
 <a href="<?= base_url(); ?>/views/room/index.php" class="mb-4 btn btn-sm"><i class='bx bx-arrow-back'></i> back</a>
-<form action="<?= base_url() ?>/resources/php/room/store.php" enctype="multipart/form-data" method="POST">
+<!-- <form action="" enctype="multipart/form-data" method="POST" id="formRoom"> -->
+<form action="<?= base_url() ?>/resources/php/room/store.php" enctype="multipart/form-data" method="POST" id="formRoom">
     <div class="form-control">
         <label class="label" for="title">Title</label>
         <input class="input" type="text" name="title" id="title" required>
@@ -23,7 +24,7 @@
     </div>
     <div class="form-control">
         <label class="label" for="body">Body</label>
-        <textarea class="textarea" name="body" id="body" rows="15" required></textarea>
+        <textarea class="textarea" name="body" id="body" rows="7" required></textarea>
     </div>
     <div class="flex flex-wrap gap-4 mt-4">
         <?php
@@ -58,6 +59,37 @@
 </form>
 <script src="<?= base_url(); ?>/public/vendor/pannellum/pannellum.js"></script>
 <script>
+    $(document).ready(function() {
+        $("#formRoom").validate({
+            rules: {
+                onkeyup: true,
+                title: {
+                    required: true,
+                    minlength: 3
+                },
+                descriptions: {
+                    required: true,
+                    minlength: 3
+                },
+                facilities: {
+                    required: true,
+                },
+                body: {
+                    required: true,
+                    minlength: 3
+                },
+                thumbnail: {
+                    required: true,
+                    extension: "png|jpg|jpeg",
+                },
+                panorama: {
+                    required: true,
+                    extension: "png|jpg|jpeg"
+                }
+            },
+        })
+    });
+
     function showPreview(event) {
         if (event.target.files.length > 0) {
             let src = URL.createObjectURL(event.target.files[0]);
