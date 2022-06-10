@@ -11,11 +11,13 @@ if (isset($_COOKIE['remember_token'])) {
     $user->bindParam(':id', $user_id);
     $user->execute();
     $user = $user->fetch(PDO::FETCH_ASSOC);
+    $_SESSION['user_id'] = $user['id'];
     $_SESSION['Session_email'] = $user['email'];
     $_SESSION['Session_firstName'] = $user['first_name'];
     $_SESSION['Session_lastName'] = $user['last_name'];
     $_SESSION['Session_status'] = "Active";
-    header("location:../../pages/index.php");
+    $_SESSION['level'] = $user['level'];
+    header("location:index.php");
 }
 
 ?>
