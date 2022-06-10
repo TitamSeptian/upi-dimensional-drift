@@ -108,6 +108,14 @@ if ($_SESSION['Session_status'] !== 'Active') {
                                 </span>
                             </a>
                         </div>
+                        <div class="grid gap-2">
+                            <a href="<?= base_url(); ?>/views/user_log/index.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group">
+                                <i class="text-xl text-gray-400 transition-all duration-300 bx bx-receipt group-hover:text-color3"></i>
+                                <span class="font-semibold text-gray-400 transition-all duration-300 group-hover:text-color3">
+                                    User Log
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </aside>
