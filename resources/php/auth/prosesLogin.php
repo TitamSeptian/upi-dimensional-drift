@@ -1,6 +1,7 @@
 <?php
 session_start();
-include '../connections.php';
+include "../functions.php";
+
 // include 'functions.php';
 
 $conn = connectMySQL();
@@ -8,17 +9,14 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $remember = $_POST['remember-me'] ?? '';
 
-$row = $conn->prepare("select * from users where email = ? and password = ?");
-$row->execute(array($email, $password));
-$count = $row->rowCount();
-$hasil = $row->fetch();
-
-if ($count > 0) {
-    $_SESSION['user_id'] = $hasil['id'];
-    $_SESSION['Session_email'] = $hasil['email'];
-    $_SESSION['Session_firstName'] = $hasil['first_name'];
-    $_SESSION['Session_lastName'] = $hasil['last_name'];
+$user = userAttempt($email, $password);
+if ($user) {
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['Session_email'] = $user['email'];
+    $_SESSION['Session_firstName'] = $user['first_name'];
+    $_SESSION['Session_lastName'] = $user['last_name'];
     $_SESSION['Session_status'] = "Active";
+    $_SESSION['level'] = $user['level'];
     if ($remember == '1') {
         $day = 30;
         $token = bin2hex(random_bytes(64));
@@ -26,7 +24,7 @@ if ($count > 0) {
         $expiry = date('Y-m-d H:i:s', $expired_seconds);
         $sql = 'INSERT INTO user_token(`user_id`, `exp`, `token`) VALUES (:user_id, :exp, :token)';
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':user_id', $hasil['id']);
+        $stmt->bindParam(':user_id', $user['id']);
         $stmt->bindParam(':exp', $expiry);
         $stmt->bindParam(':token', $token);
         $stmt->execute();
