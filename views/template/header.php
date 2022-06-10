@@ -1,6 +1,12 @@
-<?php include '../../resources/php/functions.php' ?>
 <?php
- session_start();
+include '../../resources/php/functions.php';
+session_start();
+if (!isset($_SESSION['Session_status'])) {
+    redirectTo('Login First', '/views/login.php');
+}
+if ($_SESSION['Session_status'] !== 'Active') {
+    redirectTo('Login Again Please !!', '/views/login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +25,9 @@
 </head>
 
 <body>
-    <script src="/public/vendor/jquery/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>/public/vendor/jquery/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>/public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="<?= base_url(); ?>/public/vendor/jquery-validate/additional-methods.js"></script>
     <script>
         $(document).ready(function() {
             $(window).resize(function() {
@@ -42,7 +50,7 @@
                             dashboard
                         </span>
                         <div class="grid gap-2">
-                            <a href="#" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group">
+                            <a href="#" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group" id="home">
                                 <i class="text-xl text-gray-400 transition-all duration-300 bx bxs-dashboard group-hover:text-color3"></i>
                                 <span class="font-semibold text-gray-400 transition-all duration-300 group-hover:text-color3">
                                     Home
@@ -58,7 +66,7 @@
                             </a>
                         </div>
                         <div class="grid gap-2">
-                            <a href="<?= base_url() ?>/views/gallery/index.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group">
+                            <a href="<?= base_url() ?>/views/gallery/index.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group" id="gallery">
                                 <i class="text-xl text-gray-400 transition-all duration-300 bx bx-images group-hover:text-color3"></i>
                                 <span class="font-semibold text-gray-400 transition-all duration-300 group-hover:text-color3">
                                     Gallery
@@ -66,21 +74,34 @@
                             </a>
                         </div>
                         <div class="grid gap-2">
-                            <a href="<?= base_url(); ?>/views/facility/index.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group">
+                            <a href="<?= base_url(); ?>/views/facility/index.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group" id="facility">
                                 <i class="text-xl text-gray-400 transition-all duration-300 bx bx-label group-hover:text-color3"></i>
                                 <span class="font-semibold text-gray-400 transition-all duration-300 group-hover:text-color3">
                                     Facilities
                                 </span>
                             </a>
                         </div>
+                        <?php if ($_SESSION['level'] == 'admin') : ?>
+                            <span class="px-6 text-sm font-bold tracking-widest uppercase text-color3">
+                                Admin
+                            </span>
+                            <div class="grid gap-2">
+                                <a href="<?= base_url(); ?>/views/user/index.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group" id="user">
+                                    <i class="text-xl text-gray-400 transition-all duration-300 bx bx-user group-hover:text-color3"></i>
+                                    <span class="font-semibold text-gray-400 transition-all duration-300 group-hover:text-color3">
+                                        User
+                                    </span>
+                                </a>
+                            </div>
+                        <?php endif; ?>
                         <span class="px-6 text-sm font-bold tracking-widest uppercase text-color3">
-                            Admin
+                            Account
                         </span>
                         <div class="grid gap-2">
-                            <a href="<?= base_url(); ?>/views/user/index.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group">
-                                <i class="text-xl text-gray-400 transition-all duration-300 bx bx-user group-hover:text-color3"></i>
+                            <a href="<?= base_url() ?>/resources/php/auth/logout.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group">
+                                <i class="text-xl text-gray-400 transition-all duration-300 bx bx-log-out group-hover:text-color3"></i>
                                 <span class="font-semibold text-gray-400 transition-all duration-300 group-hover:text-color3">
-                                    User
+                                    Logout
                                 </span>
                             </a>
                         </div>

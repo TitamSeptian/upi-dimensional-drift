@@ -103,8 +103,8 @@ function insert($table, $data, $is_esacpe = false)
     try {
         $pdo->beginTransaction();
         $pdo->prepare($sql)->execute(array_values($data));
-        $pdo->commit();
         $lastId = $pdo->lastInsertId();
+        $pdo->commit();
         return true;
     } catch (PDOException $exception) {
         var_dump($exception->getMessage());
@@ -246,4 +246,34 @@ function redirectTo($message, $url)
 {
     $baseUrl = base_url();
     echo "<script>alert('{$message}'); window.location='{$baseUrl}{$url}'</script>";
+}
+
+/**
+ * Password hashing
+ * @param string $password
+ * @return string
+ */
+function passwordHash($pass)
+{
+    $prefix = "yoru";
+    return  md5($prefix . $pass);
+}
+
+function userAttempt($email, $password)
+{
+    $pdo = connectMySQL();
+    $sql = "SELECT * FROM users WHERE email=? AND password=?";
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$email, passwordHash($password)]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($user) {
+            return $user;
+        } else {
+            return false;
+        }
+    } catch (PDOException $exception) {
+        var_dump($exception->getMessage());
+        exit("error");
+    }
 }

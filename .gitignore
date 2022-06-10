@@ -2,5 +2,6 @@
 /.vscode
 public/css/app.css
 debug.log
-/public/360images
-/public/360thumbnail
+/public/360images/*
+/public/360thumbnail/*
+/public/gallery/*

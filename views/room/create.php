@@ -11,7 +11,7 @@
 <h1 class="text-gray-800 text-2xl font-black capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full mb-4">
     Room
 </h1>
-<a href="<?= base_url(); ?>/views/room/index.php" class="btn btn-sm mb-4"><i class='bx bx-arrow-back'></i> back</a>
+<a href="<?= base_url(); ?>/views/room/index.php" class="mb-4 btn btn-sm"><i class='bx bx-arrow-back'></i> back</a>
 <form action="<?= base_url() ?>/resources/php/room/store.php" enctype="multipart/form-data" method="POST">
     <div class="form-control">
         <label class="label" for="title">Title</label>
@@ -30,23 +30,23 @@
         $facilities = query("SELECT * FROM facilities");
         foreach ($facilities as $facility) :
         ?>
-            <label for="<?= $facility['id'] ?>" class="bg-gray-100 py-2 px-4 rounded-lg flex items-center gap-1 cursor-pointer hover:cursor-pointer">
-                <input type="checkbox" name="facilities[]" id="<?= $facility['id'] ?>" value="<?= $facility['id'] ?>" class="checkbox cursor-pointer">
+            <label for="<?= $facility['id'] ?>" class="flex items-center gap-1 px-4 py-2 bg-gray-100 rounded-lg cursor-pointer hover:cursor-pointer">
+                <input type="checkbox" name="facilities[]" id="<?= $facility['id'] ?>" value="<?= $facility['id'] ?>" class="cursor-pointer checkbox">
                 <span class="text-sm"><?= $facility['icon'] . " " . $facility['facility'] ?></span>
             </label>
         <?php endforeach; ?>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 mt-4 place-items-start gap-4">
-        <div class="form-control relative">
+    <div class="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 place-items-start">
+        <div class="relative form-control">
             <label class="btn" for="thumbnail">Upload Thumbnail</label>
             <input accept="image/png, image/jpeg" class="sr-only" type="file" name="thumbnail" id="thumbnail" onchange="showPreview(event);">
         </div>
-        <div class="form-control relative">
+        <div class="relative form-control">
             <label class="btn" for="panorama">Upload Panorama</label>
             <input accept="image/png, image/jpeg" class="sr-only" type="file" name="panorama" id="panorama" onchange="showPanorama(event);">
         </div>
         <div class="aspect-[16/9] rounded-xl overflow-hidden w-full bg-gray-100">
-            <img class="w-full h-full object-cover hover:scale-110 transition-all duration-300 hidden" src="" id="preview-thumbnail">
+            <img class="hidden object-cover w-full h-full transition-all duration-300 hover:scale-110" src="" id="preview-thumbnail">
         </div>
         <div class="aspect-[16/9] rounded-xl overflow-hidden w-full bg-gray-100">
             <section class="relative w-full aspect-[16/9] rounded-xl overflow-hidden">
@@ -54,7 +54,7 @@
             </section>
         </div>
     </div>
-    <button class="btn btn-sm mt-4" type="submit" name="submit">Submit</button>
+    <button class="mt-4 btn btn-sm" type="submit" name="submit">Submit</button>
 </form>
 <script src="<?= base_url(); ?>/public/vendor/pannellum/pannellum.js"></script>
 <script>
