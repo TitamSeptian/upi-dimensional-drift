@@ -30,7 +30,6 @@
             'title' => $title,
             'body' => $body,
         ], 'id', $id);
-    
         redirectTo('Image Data Updated', '/views/gallery/index.php');
     }else{
         redirectTo('Image Data Not Updated', '/views/gallery/index.php');

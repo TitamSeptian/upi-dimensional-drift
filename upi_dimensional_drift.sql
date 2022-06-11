@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : Local MySQL [root]
- Source Server Type    : MySQL
- Source Server Version : 50733
+ Source Server         : pweb&tbd
+ Source Server Type    : MariaDB
+ Source Server Version : 100421
  Source Host           : localhost:3306
  Source Schema         : upi_dimensional_drift
 
- Target Server Type    : MySQL
- Target Server Version : 50733
+ Target Server Type    : MariaDB
+ Target Server Version : 100421
  File Encoding         : 65001
 
- Date: 28/05/2022 17:28:42
+ Date: 11/06/2022 21:43:52
 */
 
 SET NAMES utf8mb4;
@@ -51,7 +51,7 @@ CREATE TABLE `gallery`  (
   UNIQUE INDEX `image`(`image`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `gallery_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of gallery
@@ -70,7 +70,7 @@ CREATE TABLE `room_details`  (
   INDEX `room_id`(`room_id`) USING BTREE,
   CONSTRAINT `room_details_ibfk_1` FOREIGN KEY (`facility_id`) REFERENCES `facilities` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `room_details_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 65 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of room_details
@@ -95,10 +95,26 @@ CREATE TABLE `rooms`  (
   UNIQUE INDEX `slug`(`slug`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `rooms_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rooms
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for user_log
+-- ----------------------------
+DROP TABLE IF EXISTS `user_log`;
+CREATE TABLE `user_log`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NULL DEFAULT NULL,
+  `activity_text` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of user_log
 -- ----------------------------
 
 -- ----------------------------
@@ -113,7 +129,7 @@ CREATE TABLE `user_token`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `user_token_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_token
@@ -133,13 +149,15 @@ CREATE TABLE `users`  (
   `last_name` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `level` enum('user','admin') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (1, 'titam@mail.com', '123qwe123', 'titam', 'septian', 'user');
 INSERT INTO `users` VALUES (2, 'andywarhol@mail.com', 'root123', 'Andy', 'warhool', 'user');
+INSERT INTO `users` VALUES (3, 'rony@mail.com', 'root', 'Rony ', 'Wahyu', 'user');
+INSERT INTO `users` VALUES (4, 'hm@mail.com', 'emyu', 'Harry', 'Maguire', 'user');
 
 -- ----------------------------
 -- Table structure for viewed_room
@@ -165,7 +183,7 @@ DROP PROCEDURE IF EXISTS `getFacilitiesByRoomId`;
 delimiter ;;
 CREATE PROCEDURE `getFacilitiesByRoomId`(IN `room_id` int)
 BEGIN
-	SELECT facilities.*, room_details.* FROM room_details JOIN facilities ON facilities.id = room_details.facility_id WHERE room_details.room_id = room_id;
+SELECT facilities.*, room_details.* FROM room_details JOIN facilities ON facilities.id = room_details.facility_id WHERE room_details.room_id = room_id;
 
 END
 ;;
@@ -178,15 +196,15 @@ DROP PROCEDURE IF EXISTS `getRoomBySlug`;
 delimiter ;;
 CREATE PROCEDURE `getRoomBySlug`(IN `slug` varchar(50))
 BEGIN
-	SELECT
-	rooms.*,
-	users.first_name AS author,
-	( SELECT count( room_id ) FROM viewed_room WHERE room_id = rooms.id ) AS viewed ,
-	( SELECT count( room_id ) FROM room_details WHERE room_id = rooms.id ) AS facilities
+SELECT
+rooms.*,
+users.first_name AS author,
+( SELECT count( room_id ) FROM viewed_room WHERE room_id = rooms.id ) AS viewed ,
+( SELECT count( room_id ) FROM room_details WHERE room_id = rooms.id ) AS facilities
 FROM
-	rooms
-	JOIN users ON rooms.user_id = users.id
-	WHERE rooms.slug = slug;
+rooms
+JOIN users ON rooms.user_id = users.id
+WHERE rooms.slug = slug;
 END
 ;;
 delimiter ;
@@ -199,15 +217,63 @@ delimiter ;;
 CREATE PROCEDURE `getRooms`()
 BEGIN
 SELECT
-	rooms.*,
-	users.first_name AS author,
-	( SELECT count( room_id ) FROM viewed_room WHERE room_id = rooms.id ) AS viewed ,
-	( SELECT count( room_id ) FROM room_details WHERE room_id = rooms.id ) AS facilities
+rooms.*,
+users.first_name AS author,
+( SELECT count( room_id ) FROM viewed_room WHERE room_id = rooms.id ) AS viewed ,
+( SELECT count( room_id ) FROM room_details WHERE room_id = rooms.id ) AS facilities
 FROM
-	rooms
-	JOIN users ON rooms.user_id = users.id;
+rooms
+JOIN users ON rooms.user_id = users.id;
 
 END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table gallery
+-- ----------------------------
+DROP TRIGGER IF EXISTS `add_gallery_log`;
+delimiter ;;
+CREATE TRIGGER `add_gallery_log` AFTER INSERT ON `gallery` FOR EACH ROW BEGIN
+        INSERT INTO user_log (user_id, activity_text, created_at)
+            VALUES ((SELECT gallery.user_id FROM gallery ORDER BY gallery.id DESC LIMIT 1) , "User Menambahkan Foto", now());
+    END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table gallery
+-- ----------------------------
+DROP TRIGGER IF EXISTS `update_gallery_log`;
+delimiter ;;
+CREATE TRIGGER `update_gallery_log` AFTER UPDATE ON `gallery` FOR EACH ROW BEGIN
+        INSERT INTO user_log (user_id, activity_text, created_at)
+            VALUES (NEW.user_id ,"User Mengubah Data Foto", now());
+    END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table rooms
+-- ----------------------------
+DROP TRIGGER IF EXISTS `add_rooms_log`;
+delimiter ;;
+CREATE TRIGGER `add_rooms_log` AFTER INSERT ON `rooms` FOR EACH ROW BEGIN
+        INSERT INTO user_log (user_id, activity_text, created_at)
+            VALUES ((SELECT rooms.user_id FROM rooms ORDER BY rooms.id DESC LIMIT 1) , "User Menambahkan Ruangan Baru", now());
+    END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table rooms
+-- ----------------------------
+DROP TRIGGER IF EXISTS `update_room_log`;
+delimiter ;;
+CREATE TRIGGER `update_room_log` AFTER UPDATE ON `rooms` FOR EACH ROW BEGIN
+        INSERT INTO user_log (user_id, activity_text, created_at)
+            VALUES (NEW.user_id ,"User Mengubah Data Room", now());
+    END
 ;;
 delimiter ;
 
