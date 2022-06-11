@@ -1,5 +1,6 @@
 <?php
 include 'connections.php';
+date_default_timezone_set('Asia/Jakarta');
 
 /**
  * Get base url

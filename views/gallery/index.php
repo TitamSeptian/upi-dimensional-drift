@@ -14,7 +14,7 @@
 // INNER JOIN users
 // ON gallery.user_id = users.id");
 
-$results = query("SELECT gallery.id, gallery.image, rooms.title as room, users.first_name, gallery.title, gallery.body FROM gallery JOIN rooms ON rooms.id = gallery.room_id JOIN users ON users.id = gallery.user_id");
+$results = query("call getGallery()");
 
 // $results2 =  query("SELECT gallery.*, CONCAT(users.first_name,' ',   users.last_name) AS name, users.id AS id_user 
 // FROM gallery
@@ -106,7 +106,7 @@ $results2 = query("SELECT * FROM users");
                     <?php
                     foreach ($results as $result) :
                         $id = $result['id'];
-                        $user = $result['first_name'];
+                        $user = $result['uploader'];
                         $room = $result['room'];
                         $image = $result['image'];
                         $title = $result['title'];

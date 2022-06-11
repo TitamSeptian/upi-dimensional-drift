@@ -33,7 +33,7 @@ CREATE TABLE `facilities`  (
 -- ----------------------------
 INSERT INTO `facilities` VALUES (1, 'parking', '<i class=\"bx bxs-parking\"></i>');
 INSERT INTO `facilities` VALUES (2, 'wifi', '<i class=\"bx bx-wifi\"></i>');
-INSERT INTO `facilities` VALUES (3, 'Food', '<i class=\'bx bx-bowl-hot\'></i>');
+INSERT INTO `facilities` VALUES (3, 'Food', '<i class=\"bx bx-bowl-hot\"></i>');
 
 -- ----------------------------
 -- Table structure for gallery
@@ -116,8 +116,6 @@ CREATE TABLE `user_log`  (
 -- ----------------------------
 -- Records of user_log
 -- ----------------------------
-INSERT INTO `user_log` VALUES (1, 1, 'Menambahkan Gallery', '2022-06-10 15:54:02');
-INSERT INTO `user_log` VALUES (2, 2, 'Menghapus Gallery', '2022-06-10 15:54:23');
 
 -- ----------------------------
 -- Table structure for user_token
@@ -136,8 +134,6 @@ CREATE TABLE `user_token`  (
 -- ----------------------------
 -- Records of user_token
 -- ----------------------------
-INSERT INTO `user_token` VALUES (1, '1e2847fb9f1a4748cd3c499fadb346ea6cd8a83940db90fe6fa20ec41e359d293b8f799117eeacbb161493d7dfb68fe6d1fcb2352e7295cef9bf11a88006ae9c', '2022-06-07 21:32:16', 1);
-INSERT INTO `user_token` VALUES (2, '580668ce1d3c1eadcc6210599d9aa5c176191fdd26c5a997ed1b73f1ae4deee832f327383a5797be298f9d66ab00ab69aead3eb35bf9520c8dbc28043fdf5187', '2022-06-26 14:40:36', 1);
 
 -- ----------------------------
 -- Table structure for users
@@ -156,10 +152,6 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'titam@mail.com', '123qwe123', 'titam', 'septian', 'user');
-INSERT INTO `users` VALUES (2, 'andywarhol@mail.com', 'root123', 'Andy', 'warhool', 'user');
-INSERT INTO `users` VALUES (5, 'riyandifirman2@gmail.com', 'lakaka', 'ccot', 'occt', 'user');
-INSERT INTO `users` VALUES (6, 'ocotbekicot@gmail.com', 'ocot', 'ocot', 'bekicot', 'user');
 
 -- ----------------------------
 -- Table structure for viewed_room
@@ -230,5 +222,21 @@ FROM
 END
 ;;
 delimiter ;
-
+-- ----------------------------
+-- Procedure structure for getGallery
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `getGallery`;
+delimiter ;;
+CREATE PROCEDURE `getGallery`()
+BEGIN
+SELECT
+	gallery.*,
+	CONCAT( users.first_name, ' ', users.last_name ) AS uploader ,
+	(SELECT rooms.title FROM rooms WHERE rooms.id = gallery.room_id) as room
+FROM
+	gallery
+	JOIN users ON users.id = gallery.user_id;
+END
+;;
+delimiter ;
 SET FOREIGN_KEY_CHECKS = 1;

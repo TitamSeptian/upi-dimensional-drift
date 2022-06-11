@@ -28,6 +28,7 @@ if ($_SESSION['Session_status'] !== 'Active') {
     <script src="<?= base_url(); ?>/public/vendor/jquery/jquery.min.js"></script>
     <script src="<?= base_url(); ?>/public/vendor/jquery-validate/jquery.validate.min.js"></script>
     <script src="<?= base_url(); ?>/public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $.validator.addMethod('filesize', function(value, element, param) {
             return this.optional(element) || (element.files[0].size <= param)
@@ -53,7 +54,7 @@ if ($_SESSION['Session_status'] !== 'Active') {
                             dashboard
                         </span>
                         <div class="grid gap-2">
-                            <a href="#" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group" id="home">
+                            <a href="<?= base_url() ?>/views/dashboard/dashboard.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group" id="home">
                                 <i class="text-xl text-gray-400 transition-all duration-300 bx bxs-dashboard group-hover:text-color3"></i>
                                 <span class="font-semibold text-gray-400 transition-all duration-300 group-hover:text-color3">
                                     Home
@@ -96,6 +97,14 @@ if ($_SESSION['Session_status'] !== 'Active') {
                                     </span>
                                 </a>
                             </div>
+                            <div class="grid gap-2">
+                                <a href="<?= base_url(); ?>/views/user_log/index.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group" id="user-log">
+                                    <i class="text-xl text-gray-400 transition-all duration-300 bx bx-receipt group-hover:text-color3"></i>
+                                    <span class="font-semibold text-gray-400 transition-all duration-300 group-hover:text-color3">
+                                        User Log
+                                    </span>
+                                </a>
+                            </div>
                         <?php endif; ?>
                         <span class="px-6 text-sm font-bold tracking-widest uppercase text-color3">
                             Account
@@ -108,14 +117,7 @@ if ($_SESSION['Session_status'] !== 'Active') {
                                 </span>
                             </a>
                         </div>
-                        <div class="grid gap-2">
-                            <a href="<?= base_url(); ?>/views/user_log/index.php" class="flex items-center gap-2 px-6 py-4 transition-all duration-300 hover:bg-gray-100 rounded-xl group">
-                                <i class="text-xl text-gray-400 transition-all duration-300 bx bx-receipt group-hover:text-color3"></i>
-                                <span class="font-semibold text-gray-400 transition-all duration-300 group-hover:text-color3">
-                                    User Log
-                                </span>
-                            </a>
-                        </div>
+
                     </div>
                 </div>
             </aside>

@@ -10,7 +10,7 @@
             rooms on the UPI Cibiru campus more deeply or look like
             real.
         </p>
-        <a href="" class="block px-11 font-semibold py-2 bg-color1 text-white rounded-lg text-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+        <a href="<?= base_url(); ?>/views/room-tour.php" class="block px-11 font-semibold py-2 bg-color1 text-white rounded-lg text-2xl hover:scale-105 transition-all duration-300 ease-in-out">
             See the campus
         </a>
     </div>
