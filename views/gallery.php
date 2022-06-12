@@ -51,6 +51,7 @@
             $body = $content['body'];
             $imagePath = $content['path'];
             $uploader = $content['uploader'];
+            $image = $content['image'];
         ?>
             <div class="relative overflow-hidden rounded-2xl group">
                 <div class="absolute z-10 flex space-x-4 top-4 left-4">
@@ -59,7 +60,7 @@
                     </button>
 
                 </div>
-                <img class="relative z-0 w-full transition-all duration-300 hover:scale-110" src="<?= $imagePath ?>" alt="" title="" />
+                <img class="relative z-0 w-full transition-all duration-300 hover:scale-110" src="/public/gallery/<?= $image ?>" alt="" title="" />
                 <span id="uploaderName" data-uploader="<?= $uploader ?> "></span>
             </div>
         <?php endforeach; ?>

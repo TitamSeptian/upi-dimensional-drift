@@ -106,7 +106,7 @@ $results2 = query("SELECT * FROM users");
                     ?>
                         <tr class="bg-white border-b">
                             <td class="max-w-sm truncate td">
-                                <img src="<?= base_url() ?>/../../../../public/gallery/<?= $image ?>" alt="" class="w-24 rounded-lg" alt=<?= $image ?>>
+                                <img src="/public/gallery/<?= $image ?>" alt="" class="w-24 rounded-lg" alt=<?= $image ?>>
                             </td>
                             <td class="td"><?= $room ?></td>
                             <td class="td"><?= $user ?></td>
