@@ -13,6 +13,7 @@ if (isset($_POST['update'])) {
         'title' => $_POST['title'] ?? '',
         'body' => $_POST['body'] ?? '',
         'user_id' => $_SESSION['user_id'],
+        'room_id' => $_POST['room'] ?? null,
     ];
     if (is_uploaded_file($_FILES['image']['tmp_name'])) {
         unlink('../../../public/gallery/' . $gallery['image']);

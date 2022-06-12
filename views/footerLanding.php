@@ -18,10 +18,18 @@
         </div>
         <div class="sm:order-2 order-1 sm:basis-1/2 flex flex-col items-end">
             <ul class="flex sm:justify-between flex-col sm:flex-row gap-y-4 sm:gap-x-10 py-3 font-semibold">
-                <li>Home</li>
-                <li>About</li>
-                <li>Room Tour</li>
-                <li>Gallery</li>
+                <li>
+                    <a href="/views/index.php">Home</a>
+                </li>
+                <li>
+                    <a href="/views/about.php">About</a>
+                </li>
+                <li>
+                    <a href="/views/room-tour.php">Room Tour</a>
+                </li>
+                <li>
+                    <a href="/views/gallery.php">Gallery</a>
+                </li>
             </ul>
             <div class="flex text-2xl gap-x-2">
                 <a href="" class="">
