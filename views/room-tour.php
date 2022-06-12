@@ -6,14 +6,42 @@
     $("header").removeClass("absolute")
 </script>
 <div class="container px-8 mx-auto space-y-10 my-10">
-    <div class="space-y-2">
-        <h1 class="sm:text-4xl text-gray-800 font-bold text-xl capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">See the Campus With a
-            360° Concept</h1>
-        <p class="tracking-wide text-gray-600 sm:text-base text-sm">his 360° system is applied to see various facilities or rooms on the UPI Cibiru campus more deeply or look like real.</p>
+    <div class="space-y-2 flex justify-between flex-wrap gap-3">
+        <div class="space-y-2">
+            <h1 class="sm:text-4xl text-gray-800 font-bold text-xl capitalize after:content-[''] after:block after:w-10 after:h-1 after:bg-gray-800 after:rounded-full">See the Campus With a
+                360° Concept</h1>
+            <p class="tracking-wide text-gray-600 sm:text-base text-sm">his 360° system is applied to see various facilities or rooms on the UPI Cibiru campus more deeply or look like real.</p>
+        </div>
+        <div class="dropdown inline-block relative">
+            <button class="bg-white text-color1 hover:bg-color1 hover:text-white border border-color1 font-semibold py-2 px-4 rounded inline-flex items-center">
+                <span class="mr-1">Short By</span>
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+            </button>
+            <ul class="dropdown-menu absolute hidden text-color1 pt-1 border rounded">
+                <li class=""><a class="rounded-t bg-white hover:bg-color1 hover:text-white py-2 px-4 block whitespace-no-wrap" href="?orderBy=mostViewed">Most Viewed</a></li>
+                <li class=""><a class="bg-white hover:bg-color1 hover:text-white py-2 px-4 block whitespace-no-wrap" href="?orderBy=mostFacility">Most Facility</a></li>
+                <!-- <li class=""><a class="rounded-b bg-white hover:bg-color1 py-2 px-4 block whitespace-no-wrap" href="#">Three is the magic number</a></li> -->
+            </ul>
+        </div>
     </div>
     <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
         <?php
-        $rooms = query("call getRooms()");
+        $query;
+        $orderBy = $_GET['orderBy'] ?? '';
+        switch ($orderBy) {
+            case 'mostViewed':
+                $query = "call getRoomMostViewed()";
+                break;
+            case 'mostFacility':
+                $query = "call getRoomMostFacility()";
+                break;
+            default:
+                $query = "call getRooms()";
+                break;
+        }
+        $rooms = query($query);
         if (empty($rooms)) {
         ?>
             <div class="min-h-screen flex items-center justify-center">

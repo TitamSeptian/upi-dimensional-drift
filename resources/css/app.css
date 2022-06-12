@@ -237,6 +237,10 @@
     transition: all 0.4s;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 @layer components {
     /* Button */
     .btn {
