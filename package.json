@@ -1,6 +1,7 @@
 {
     "scripts": {
-        "tw": "npx tailwindcss -i ./resources/css/app.css -o ./public/css/app.css --watch"
+        "tw": "npx tailwindcss -i ./resources/css/app.css -o ./public/css/app.css --watch",
+        "prod": "npx tailwindcss -i ./resources/css/app.css -o ./public/css/app.css --minify"
     },
     "devDependencies": {
         "@tailwindcss/aspect-ratio": "^0.4.0",
