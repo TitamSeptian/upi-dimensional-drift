@@ -1,6 +1,6 @@
 <?php
 session_start();
-include $_SERVER['DOCUMENT_ROOT'] . '/resources/php/connections.php';
+include '../resources/php/connections.php';
 $conn = connectMySQL();
 if (isset($_COOKIE['remember_token'])) {
     $row = $conn->prepare("select * from user_token where token = :token");
