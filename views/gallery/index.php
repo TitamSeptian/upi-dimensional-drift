@@ -9,17 +9,9 @@
     $(`#${id} span`).addClass("text-color3")
 </script>
 <?php
-// $results =  query("SELECT gallery.*, CONCAT(users.first_name,' ',   users.last_name) AS name 
-// FROM gallery
-// INNER JOIN users
-// ON gallery.user_id = users.id");
 
 $results = query("call getGallery()");
 
-// $results2 =  query("SELECT gallery.*, CONCAT(users.first_name,' ',   users.last_name) AS name, users.id AS id_user 
-// FROM gallery
-// LEFT JOIN users
-// ON gallery.user_id = users.id");
 
 $results2 = query("SELECT * FROM users");
 ?>
