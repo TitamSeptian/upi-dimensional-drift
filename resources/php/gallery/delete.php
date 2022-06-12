@@ -21,7 +21,6 @@ insert('user_log',[
     'created_at' => $activity_date,
 ]);
 
-unlink('../../../public/images/gallery/' . $gallery['image']);
+unlink('../../../public/gallery/' . $gallery['image']);
 delete('gallery', 'id', $id);
 redirectTo('Image Deleted', '/views/gallery/index.php');
-?>

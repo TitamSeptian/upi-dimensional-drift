@@ -1,5 +1,6 @@
 <?php
 include_once '../functions.php';
+session_start();
 
 $id = $_GET['id'] ?? '';
 
@@ -8,5 +9,7 @@ if ($id == '') {
 }
 
 delete('users', 'id', $id);
+if($_SESSION['user_id'] == $id){
+    session_destroy();
+}
 redirectTo('User Deleted!', '/views/user/index.php');
-?>
