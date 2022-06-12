@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
                 </form>
                 <p class="text-thin text-center mt-4">
                     Already have an account?
-                    <a href="" class="underline text-color4">Sign in instead</a>
+                    <a href="login.php" class="underline text-color4">Sign in instead</a>
                 </p>
             </div>
         </div>

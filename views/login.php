@@ -42,7 +42,9 @@ if (isset($_COOKIE['remember_token'])) {
         <div class="flex items-center w-screen h-screen justify-center bg-[url('/public/images/login/background.png')] bg-cover">
             <div class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 flex flex-col w-[500px]">
                 <div class="flex flex-col items-center gap-4">
-                    <img src="/public/images/logo/logo.png" alt="logo" />
+                    <a href="index.php">
+                        <img src="/public/images/logo/logo.png" alt="logo" />
+                    </a>
                     <h1 class="text-xl font-semibold">
                         Welcome To UPI Dimensional Drift
                     </h1>
