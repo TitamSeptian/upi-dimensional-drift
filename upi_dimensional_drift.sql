@@ -34,37 +34,18 @@ INSERT INTO `upi_dimensional_drift`.`facilities` (`id`, `facility`, `icon`) VALU
 INSERT INTO `upi_dimensional_drift`.`facilities` (`id`, `facility`, `icon`) VALUES (3, 'Food', '<i class=\"bx bx-bowl-hot\"></i>');
 
 -- ----------------------------
--- Table structure for gallery
+-- Table structure for users
 -- ----------------------------
-DROP TABLE IF EXISTS `gallery`;
-CREATE TABLE `gallery`  (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `image` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `path` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `room_id` int(11) NULL DEFAULT NULL,
-  `user_id` int(11) NOT NULL,
-  `title` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `body` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `image`(`image`) USING BTREE,
-  INDEX `user_id`(`user_id`) USING BTREE,
-  CONSTRAINT `gallery_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Table structure for room_details
--- ----------------------------
-DROP TABLE IF EXISTS `room_details`;
-CREATE TABLE `room_details`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `facility_id` int(11) NOT NULL,
-  `room_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `facility_id`(`facility_id`) USING BTREE,
-  INDEX `room_details_ibfk_2`(`room_id`) USING BTREE,
-  CONSTRAINT `room_details_ibfk_1` FOREIGN KEY (`facility_id`) REFERENCES `facilities` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `room_details_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `first_name` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `last_name` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `level` enum('user','admin') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Table structure for rooms
@@ -113,19 +94,39 @@ CREATE TABLE `user_token`  (
   CONSTRAINT `user_token_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
+
 -- ----------------------------
--- Table structure for users
+-- Table structure for gallery
 -- ----------------------------
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users`  (
+DROP TABLE IF EXISTS `gallery`;
+CREATE TABLE `gallery`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `first_name` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `last_name` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `level` enum('user','admin') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+  `image` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `path` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `room_id` int(11) NULL DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `body` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `image`(`image`) USING BTREE,
+  INDEX `user_id`(`user_id`) USING BTREE,
+  CONSTRAINT `gallery_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for room_details
+-- ----------------------------
+DROP TABLE IF EXISTS `room_details`;
+CREATE TABLE `room_details`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `facility_id` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `facility_id`(`facility_id`) USING BTREE,
+  INDEX `room_details_ibfk_2`(`room_id`) USING BTREE,
+  CONSTRAINT `room_details_ibfk_1` FOREIGN KEY (`facility_id`) REFERENCES `facilities` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `room_details_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for viewed_room

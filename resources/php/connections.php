@@ -1,10 +1,10 @@
 <?php
 function connectMySQL()
 {
-    $PORT = '3306'; // default 3306
-    $DATABASE_HOST = 'az999-azure-mysql.mysql.database.azure.com';
-    $DATABASE_USER = 'septiangantenk@az999-azure-mysql';
-    $DATABASE_PASS = 'zjv%$37EDo';
+    $PORT = '4000'; // default 3306
+    $DATABASE_HOST = 'localhost:4000';
+    $DATABASE_USER = 'root';
+    $DATABASE_PASS = '123qwe123';
     $DATABASE_NAME = 'upi_dimensional_drift';
     try {
         return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
@@ -31,7 +31,7 @@ function connectMySQL2()
 
 function mysqlCon()
 {
-    $host        = "localhost:3306";
+    $host        = "localhost:4000";
     $username    = "root";
     $password    = "123qwe123";
     $db          = "upi_dimensional_drift";

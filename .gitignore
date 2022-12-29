@@ -5,3 +5,4 @@ debug.log
 /public/360images/*
 /public/360thumbnail/*
 /public/gallery/*
+/.idea
