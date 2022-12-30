@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
         'created_at' => date('Y-m-d H:i:s'),
         'updated_at' => date('Y-m-d H:i:s'),
         'user_id' => $_SESSION['user_id']
-    ]);
+    ], true);
     move_uploaded_file($_FILES['thumbnail']['tmp_name'], $thumbnailLocaltion);
     move_uploaded_file($_FILES['panorama']['tmp_name'], $panoramaLocaltion);
     if ($result) {
@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
             insert('room_details', [
                 'room_id' => $roomId,
                 'facility_id' => $facility
-            ]);
+            ], true);
         }
         redirectTo("Room Created", "/views/room/index.php");
     }

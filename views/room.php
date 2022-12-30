@@ -1,9 +1,14 @@
 <?php include_once 'headerLanding.php';
 $slug = $_GET['panorama'] ?? '';
+$slug = xss_encode($slug);
 if ($slug == '') {
     header('Location: /views/room/index.php');
 }
 $room = query("call getRoomBySlug('$slug')")[0];
+// dd(isset($room));
+if (!isset($room)) {
+    redirectTo('Room Not Found', '/views/room/index.php');
+}
 insert("viewed_room", [
     'room_id' => $room['id'],
     'date' => date('Y-m-d H:i:s'),

@@ -2,12 +2,15 @@
 function connectMySQL()
 {
     $PORT = '4000'; // default 3306
-    $DATABASE_HOST = 'localhost:4000';
+    $DATABASE_HOST = 'localhost:3306';
     $DATABASE_USER = 'root';
     $DATABASE_PASS = '123qwe123';
     $DATABASE_NAME = 'upi_dimensional_drift';
     try {
-        return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
+        return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS, [
+            PDO::ATTR_EMULATE_PREPARES => false,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ]);
     } catch (PDOException $exception) {
         print_r($exception);
         exit('Failed to connect to database!');

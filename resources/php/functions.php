@@ -36,6 +36,14 @@ function dirFile()
     return __DIR__;
 }
 
+function dd()
+{
+    array_map(function ($x) {
+        var_dump($x);
+    }, func_get_args());
+    die;
+}
+
 function registerAcc()
 {
 
@@ -92,7 +100,7 @@ function escape_mysql_identifier($field)
  * @param boolean $is_esacpe
  * @return boolean
  */
-function insert($table, $data, $is_esacpe = false)
+function insert($table, $data, $xss = false)
 {
     $pdo = connectMySQL();
     $keys = array_keys($data);
@@ -100,14 +108,20 @@ function insert($table, $data, $is_esacpe = false)
     $fields = implode(",", $keys);
     $table = escape_mysql_identifier($table);
     $placeholders = str_repeat('?,', count($keys) - 1) . '?';
+    $values = array_values($data);
+    if ($xss) {
+        $values = array_map('htmlspecialchars', array_values($values));
+    }
     $sql = "INSERT INTO $table ($fields) VALUES ($placeholders)";
+    // dd($sql, $values);
     try {
         $pdo->beginTransaction();
-        $pdo->prepare($sql)->execute(array_values($data));
+        $pdo->prepare($sql)->execute($values);
         $lastId = $pdo->lastInsertId();
         $pdo->commit();
         return true;
     } catch (PDOException $exception) {
+        $pdo->rollBack();
         var_dump($exception->getMessage());
         exit("error");
     }
@@ -142,7 +156,7 @@ function query($sql, $data = [])
  * @return boolean
  * 
  */
-function update($table, $dat, $where, $val)
+function update($table, $dat, $where, $val, $xss = false)
 {
     $pdo = connectMySQL();
     if ($dat !== null) {
@@ -155,6 +169,10 @@ function update($table, $dat, $where, $val)
         $mark[] = $col . "=?";
     }
     $im  = implode(', ', $mark);
+    if ($xss) {
+        $data = array_map('htmlspecialchars', array_values($data));
+    }
+    // dd($data);
     $ins = $pdo->prepare("UPDATE $table SET $im where $where=?");
     try {
         $ins->execute($data);
@@ -277,4 +295,25 @@ function userAttempt($email, $password)
         var_dump($exception->getMessage());
         exit("error");
     }
+}
+
+// add xss filter
+function xss_filter($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+// xss encode
+function xss_encode($data)
+{
+    return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+}
+
+// xss decode
+function xss_decode($data)
+{
+    return htmlspecialchars_decode($data, ENT_QUOTES);
 }

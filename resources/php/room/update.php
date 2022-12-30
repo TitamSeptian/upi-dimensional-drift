@@ -43,7 +43,7 @@ if (isset($_POST['facilities'])) {
     }
 }
 
-$result = update('rooms', $data, 'id', $id);
+$result = update('rooms', $data, 'id', $id, true);
 if ($result) {
     redirectTo('Room Updated', '/views/room/index.php');
 }

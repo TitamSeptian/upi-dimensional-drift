@@ -27,7 +27,7 @@ $facility = query("SELECT * FROM facilities WHERE id = ?", [$id])[0];
     <div class="py-2 form-control">
         <label class="label" for="icon">Icon</label>
         <span class="text-sm text-color1">icon only support from <a href="https://boxicons.com" class="italic hover:underline hover:text-color3" target="_blank">https://boxicons.com</a> </span>
-        <input class="input" type="text" name="icon" id="icon" value="<?= htmlentities($facility['icon']) ?>">
+        <input class="input" type="text" name="icon" id="icon" value="<?= xss_decode($facility['icon']) ?>">
     </div>
     <button class="btn btn-sm" type="submit">
         Update
